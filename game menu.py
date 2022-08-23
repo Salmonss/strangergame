@@ -112,8 +112,8 @@ back_button = button.Button(280, 500, bg_back, 0.8)
 
 # OPTIONS SET UP
 def option():
-    running = True
-    while running:
+    
+    while True:
         #SCREEN
         screen.blit(bg_bg, (0, 0 ))
         draw_text("OPTIONS", font, (255, 255, 255), screen, 20, 20)
@@ -122,16 +122,16 @@ def option():
         #SCREEN TO SCREEN 
         if videos_button.draw(screen):
             if click:
-                pass
+                videos()
         if sounds_button.draw(screen):
             if click:
-                pass
+                sounds()
         if keypads_button.draw(screen):
             if click:
                 keypads()
         if about_button.draw(screen):
             if click:
-                pass
+                about()
         if back_button.draw(screen):
             if click:
                 game_menu()
@@ -159,11 +159,11 @@ kp_left = pygame.image.load('leftkey1.png')
 kp_right = pygame.image.load('rightkey1.png')
 
 #FUNCTION BUTTONS
-down_kp = button.Button(258, 300, kp_down, 0.8)
-up_kp = button.Button(258, 200, kp_up, 0.8)
-left_kp = button.Button(258, 400, kp_left, 0.8)
-right_kp = button.Button(258, 500, kp_right, 0.8)
-key_kp = button.Button(258, 100, kp_key, 0.8)
+down_kp = button.Button(280, 300, kp_down, 0.8)
+up_kp = button.Button(280, 200, kp_up, 0.8)
+left_kp = button.Button(280, 400, kp_left, 0.8)
+right_kp = button.Button(280, 500, kp_right, 0.8)
+key_kp = button.Button(280, 100, kp_key, 0.8)
 back_kp = button.Button(15, 500, kp_back, 0.8)
 
 # KEYPADS SET UP
@@ -176,10 +176,12 @@ def keypads():
         
         
         #SCREEN TO SCREEN
-
-        if key_kp.draw(screen):
+        
+        if back_kp.draw(screen):
             if click:
-                game()
+                option()
+        if key_kp.draw(screen):
+            pass
         if down_kp.draw(screen):
             pass  
         if up_kp.draw(screen):
@@ -188,9 +190,7 @@ def keypads():
             pass
         if right_kp.draw(screen):
             pass
-        if back_kp.draw(screen):
-            if click:
-                option()
+        
         
 
         click = False
@@ -206,14 +206,26 @@ def keypads():
         pygame.display.update()
         mainClock.tick(60)
 
+#VARIABLE IN ABILITIES
+ab_back = pygame.image.load('back.png')
+
+#FUNCTION BUTTON
+back_ab = button.Button(15, 500, ab_back, 0.8)
+
 # ABILITIES SET UP
 def abilities():
     running = True
     while running:
         #SCREEN
         screen.blit(bg_bg, (0,0))
-        draw_text("Abilities", font, (255, 255, 255), screen, 20, 20)
+        draw_text("ABILITIES", font, (255, 255, 255), screen, 20, 20)
 
+
+        if back_ab.draw(screen):
+            if click:
+                game_menu
+
+        click = False
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -222,9 +234,104 @@ def abilities():
             if event.type == KEYDOWN:
                 if event.key == K_ESCAPE:
                    running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
 
         pygame.display.update()
         mainClock.tick(60)
 
+#VARIABLES IN SOUNDS
+s_back = pygame.image.load('back.png')
 
+#FUCTIONS BUTTON
+back_s = button.Button(15, 500, s_back, 0.8)
+
+# SOUNDS SET UP
+def sounds():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_bg, (0,0))
+        draw_text("SOUNDS", font, (255, 255, 255), screen, 20, 20)
+
+        if back_s.draw(screen):
+            if click:
+                option()
+
+        click = False
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+#VARIBALE IN VIDEOS
+v_back = pygame.image.load('back.png')
+
+#FUCTIONS BUTTON
+back_v = button.Button(15, 500, v_back, 0.8)
+
+# VIDEOS SET UP
+def videos():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_bg, (0,0))
+        draw_text("VIDEOS", font, (255, 255, 255), screen, 20, 20)
+
+        if back_v.draw(screen):
+            if click:
+                option()
+
+        click = False
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+#VARIABLE IN ABOUT
+a_back = pygame.image.load('back.png')
+
+#FUNCTION BUTTON
+back_a = button.Button(15, 500, a_back, 0.8)
+
+# ABOUT SET UP
+def about():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_bg, (0,0))
+        draw_text("ABOUT", font, (255, 255, 255), screen, 20, 20)
+        
+        if back_a.draw(screen):
+            if click:
+                option()
+        
+        click = False
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+
+        pygame.display.update()
+        mainClock.tick(60)
 game_menu()
