@@ -33,6 +33,7 @@ start_img = pygame.image.load('assets/start1.png')
 option_img = pygame.image.load('assets/Options1.png')
 abilities_img = pygame.image.load('assets/abilities1.png')
 bg_bg = pygame.image.load('assets/bg.png')
+bg_background = pygame.image.load('assets/background.png')
 
 # FUNCTION BUTTONS IN GAME MENU
 
@@ -59,15 +60,12 @@ back_button = button.Button(280, 500, bg_back, 0.8)
 # IMAGE IN KEYPADS
 
 kp_back = pygame.image.load('assets/back.png')
-kp_key = pygame.image.load('assets/arrowkey.png')
-kp_down = pygame.image.load('assets/downkey1.png')
-kp_up = pygame.image.load('assets/upkey1.png')
-kp_left = pygame.image.load('assets/leftkey1.png')
-kp_right = pygame.image.load('assets/rightkey1.png')
+kp_keypadss = pygame.image.load('assets/keypadss.png')
+
 
 # FUNCTION BUTTON IN KEYPADS
 
-back_kp = button.Button(15, 500, kp_back, 0.8)
+back_kp = button.Button(15, 520, kp_back, 0.8)
 
 # IMAGE IN SOUNDS
 
@@ -75,7 +73,7 @@ s_back = pygame.image.load('assets/back.png')
 
 # FUNCTION BUTTON IN SOUNDS
 
-back_s = button.Button(15, 500, s_back, 0.8)
+back_s = button.Button(15, 520, s_back, 0.8)
 
 # IMAGE IN VIDEOS
 
@@ -83,15 +81,16 @@ v_back = pygame.image.load('assets/back.png')
 
 # FUNCTION BUTTON IN VIDEOS
 
-back_v = button.Button(15, 500, v_back, 0.8)
+back_v = button.Button(15, 520, v_back, 0.8)
 
 # IMAGE IN ABOUT
 
 a_back = pygame.image.load('assets/back.png')
+a_aboutss = pygame.image.load('assets/aboutss.png')
 
 # FUNCTION BUTTON IN ABOUTS
 
-back_a = button.Button(15, 500, a_back, 0.8)
+back_a = button.Button(15, 520, a_back, 0.8)
 
 
 # IMAGE IN ABILITIES
@@ -101,9 +100,9 @@ b_next = pygame.image.load('assets/next.png')
 
 # FUNCTION BUTTON IN ABILITIES
 
-back_ab = button.Button(15, 500, ab_back, 0.8)
-next_b = button.Button(540, 500, b_next, 0.8)
-ab_ab1 = button.Button(540, 500, b_next, 0.8)
+back_ab = button.Button(15, 520, ab_back, 0.8)
+next_b = button.Button(540, 520, b_next, 0.8)
+
 
 
 #SET UP OF EVERY SCREEN IN THE GAME
@@ -220,12 +219,8 @@ def keypads():
     running = True
     while running:
         #SCREEN
-        screen.blit(bg_bg, (0,0))
-        screen.blit(kp_down, (280, 300))
-        screen.blit(kp_up, (280, 200))
-        screen.blit(kp_left, (280, 400))
-        screen.blit(kp_right, (280, 500))
-        screen.blit(kp_key, (280, 100))
+        screen.blit(bg_background, (0,0))
+        screen.blit(kp_keypadss, (350,50))
 
         draw_text("KEYPADS", font, (255, 255, 255), screen, 20, 20)
         
@@ -257,7 +252,7 @@ def sounds():
     running = True
     while running:
         #SCREEN
-        screen.blit(bg_bg, (0,0))
+        screen.blit(bg_background, (0,0))
         draw_text("SOUNDS", font, (255, 255, 255), screen, 20, 20)
 
         if back_s.draw(screen):
@@ -284,7 +279,7 @@ def videos():
     running = True
     while running:
         #SCREEN
-        screen.blit(bg_bg, (0,0))
+        screen.blit(bg_background, (0,0))
         draw_text("VIDEOS", font, (255, 255, 255), screen, 20, 20)
 
         if back_v.draw(screen):
@@ -312,7 +307,8 @@ def about():
     running = True
     while running:
         #SCREEN
-        screen.blit(bg_bg, (0,0))
+        screen.blit(bg_background, (0,0))
+        screen.blit(a_aboutss, (350, 50))
         draw_text("ABOUT", font, (255, 255, 255), screen, 20, 20)
         
         if back_a.draw(screen):
@@ -339,7 +335,7 @@ def abilities():
     running = True
     while running:
         #SCREEN
-        screen.blit(bg_bg, (0,0))
+        screen.blit(bg_background, (0,0))
         
 
         draw_text("ABILITIES", font, (255, 255, 255), screen, 20, 20)
@@ -352,8 +348,7 @@ def abilities():
         if next_b.draw(screen):
             if click:
                 game_menu()          
-        if ab_ab1.draw(screen):
-            pass
+        
         click = False       
         #GAME LOOP
         for event in pygame.event.get():
