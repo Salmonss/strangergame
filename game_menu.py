@@ -15,6 +15,8 @@ font = pygame.font.SysFont(None , 20)
 
 #GAME CAPTIONS
 pygame.display.set_caption('STRANGER SHOOTER GAME')
+icon = pygame.image.load('assets/alien.png')
+pygame.display.set_icon(icon)
 
 #IMAGE FUCNTIONS
 def draw_text (text, font, color, surface, x, y):
@@ -25,6 +27,7 @@ def draw_text (text, font, color, surface, x, y):
 
 #VARIABLE 
 click = False
+go = False
 
 # IMAGE LIBRARY
 # IMAGE IN GAME MENU
@@ -95,15 +98,36 @@ back_a = button.Button(15, 520, a_back, 0.8)
 
 # IMAGE IN ABILITIES
 
-ab_back = pygame.image.load('assets/back.png')
+
 b_next = pygame.image.load('assets/next.png')
+l_abilities = pygame.image.load('assets/abilitieslogo.png')
+back_z = pygame.image.load('assets/back.png')
 
 # FUNCTION BUTTON IN ABILITIES
 
-back_ab = button.Button(15, 520, ab_back, 0.8)
-next_b = button.Button(540, 520, b_next, 0.8)
+
+forward_n = button.Button(399, 520, b_next, 0.8)
+abilities_l = button.Button(0, 120, l_abilities, 1.0)
+back_back = button.Button(120, 520, back_z, 0.8)
+
+# IMAGE IN BULLETISTIC
+f_bulletistic = pygame.image.load('assets/bulletistic.png')
+
+# IMAGE IN RAFMANIA
+f_rafmania = pygame.image.load('assets/rafmania.png')
 
 
+# IMAGE IN KABOOM
+
+f_kaboom = pygame.image.load('assets/kaboom.png')
+
+# IMAGE IN TRIPLEMAN
+
+f_tripleman = pygame.image.load('assets/tripleman.png')
+
+# IMAGE IN SPECIAL B
+
+f_specialb = pygame.image.load('assets/specialb.png')
 
 #SET UP OF EVERY SCREEN IN THE GAME
 #CUSTOMIZE OR PUTTING A FUNCTION IN THE GAME IS ALSO IN DOWN
@@ -111,6 +135,7 @@ next_b = button.Button(540, 520, b_next, 0.8)
 #VARIABLE FUCNTION AND OTHER STAFF TO CHANGE 
 
 # SET UP IN GAME MENU
+
 def game_menu():
     while True:
 
@@ -127,7 +152,6 @@ def game_menu():
         if option_button.draw(screen):
             if click:
                 option()
-     
         if abilities_button.draw(screen):
             if click:
                 abilities()
@@ -175,7 +199,8 @@ def game():
 
 # SET UP IN OPTIONS
 def option():
-    while True:
+    running = True
+    while running:
         #SCREEN
         screen.blit(bg_bg, (0, 0 ))
         draw_text("OPTIONS", font, (255, 255, 255), screen, 20, 20)
@@ -213,8 +238,50 @@ def option():
         mainClock.tick(60)
 
 
-# SET UP IN KEYPADS
+# SET UP IN ABILITIES
+def abilities():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0 ))
+        
 
+        draw_text("ABILITIES", font, (255, 255, 255), screen, 20, 20)
+        
+        #SCREEN TO SCREEN 
+        if forward_n.draw(screen):
+            if click:
+                bullet_tistic()
+        if back_back.draw(screen):
+            if click:
+                game_menu()
+        
+        if abilities_l.draw(screen):
+            if click:
+                pass          
+            
+        click = False
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False   
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+
+
+
+# SET UP IN KEYPADS
 def keypads():
     running = True
     while running:
@@ -329,32 +396,31 @@ def about():
         mainClock.tick(60)
 
 
-# SET UP IN ABILITIES
+# SET UP IN FIRST ABILITIES
 
-def abilities():
+def bullet_tistic():
     running = True
     while running:
         #SCREEN
         screen.blit(bg_background, (0,0))
+        screen.blit(f_bulletistic, (0,100))
+        draw_text("BULLETISTIC", font, (255, 255, 255), screen, 20, 20)
         
-
-        draw_text("ABILITIES", font, (255, 255, 255), screen, 20, 20)
-        
-
-        if back_ab.draw(screen):
+        if forward_n.draw(screen):
             if click:
-                option()
-        click = False
-        if next_b.draw(screen):
+                raf_mania()
+        if back_back.draw(screen):
             if click:
-                game_menu()          
-        
-        click = False       
+                abilities()
+        click = False   
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
             if event.type == MOUSEBUTTONDOWN:
                 if event.button == 1:
                     click = True
@@ -364,16 +430,123 @@ def abilities():
         mainClock.tick(60)
 
 
-# SET UP IN FIRST ABILITIES
+# SET UP IN SECOND ABILITIES
 
-def bullets():
+def raf_mania():
     running = True
     while running:
         #SCREEN
-        screen.blit(bg_bg, (0,0))
-        draw_text("ABILITIES", font, (255, 255, 255), screen, 20, 20)
+        screen.blit(bg_background, (0,0))
+        screen.blit(f_rafmania, (0,100))
+        draw_text("RAFMANIA", font, (255, 255, 255), screen, 20, 20)
+        
+        if forward_n.draw(screen):
+            if click:
+                kaboom()
+        if back_back.draw(screen):
+            if click:
+                bullet_tistic()
+        click = False   
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
 
-        click = False
+        pygame.display.update()
+        mainClock.tick(60)
+
+
+# SET UP IN THIRD ABILITIES
+
+def kaboom():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(f_kaboom, (0,100))
+        draw_text("KABOOM", font, (255, 255, 255), screen, 20, 20)
+        
+        if forward_n.draw(screen):
+            if click:
+                tripleman()
+        if back_back.draw(screen):
+            if click:
+                raf_mania()
+        click = False   
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+
+# SET UP IN FOURT ABILITIES
+
+def tripleman():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(f_tripleman, (0,100))
+        draw_text("TRIPLEMAN", font, (255, 255, 255), screen, 20, 20)
+        
+        if forward_n.draw(screen):
+            if click:
+                special_b()
+        if back_back.draw(screen):
+            if click:
+                kaboom()
+        click = False   
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+# SET UP IN FIVE ABILITIES
+
+def special_b():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(f_specialb, (0,100))
+        draw_text("SPECIAL B", font, (255, 255, 255), screen, 20, 20)
+        
+        if forward_n.draw(screen):
+            pass
+        if back_back.draw(screen):
+            if click:
+                tripleman()
+        click = False   
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
