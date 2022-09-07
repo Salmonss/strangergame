@@ -1,4 +1,5 @@
 
+
 import pygame, sys
 import button
 
@@ -47,17 +48,16 @@ abilities_button = button.Button(540, 500, abilities_img, 0.8)
 # IMAGE IN OPTIONS
 
 bg_videos = pygame.image.load('assets/videos1.png')
-bg_sounds = pygame.image.load('assets/sounds1.png')
+bg_information = pygame.image.load('assets/info.png')
 bg_keypads = pygame.image.load('assets/keypads1.png')
 bg_about = pygame.image.load('assets/about1.png')
 bg_back = pygame.image.load('assets/back.png')
 
 # FUNCTION BUTTONS IN OPTIONS
 
-videos_button = button.Button(280, 200, bg_videos, 0.8)
-sounds_button = button.Button(280, 100, bg_sounds, 0.8)
-keypads_button = button.Button(280, 300, bg_keypads, 0.8)
-about_button = button.Button(280, 400, bg_about, 0.8)
+information_button = button.Button(280, 200, bg_information, 0.8)
+keypads_button = button.Button(10, 300, bg_keypads, 0.8)
+about_button = button.Button(550, 300, bg_about, 0.8)
 back_button = button.Button(280, 500, bg_back, 0.8)
 
 # IMAGE IN KEYPADS
@@ -70,21 +70,17 @@ kp_keypadss = pygame.image.load('assets/keypadss.png')
 
 back_kp = button.Button(15, 520, kp_back, 0.8)
 
-# IMAGE IN SOUNDS
+# IMAGE IN INFORMATION
 
-s_back = pygame.image.load('assets/back.png')
+i_back = pygame.image.load('assets/back.png')
+i_logo = pygame.image.load('assets/informationlogo.png')
+i_forward = pygame.image.load('assets/next.png')
 
-# FUNCTION BUTTON IN SOUNDS
+# FUNCTION BUTTON IN INFORMATION
 
-back_s = button.Button(15, 520, s_back, 0.8)
+back_i = button.Button(15, 520, i_back, 0.8)
+infromation_forward = button.Button(500, 520, i_forward, 0.8)
 
-# IMAGE IN VIDEOS
-
-v_back = pygame.image.load('assets/back.png')
-
-# FUNCTION BUTTON IN VIDEOS
-
-back_v = button.Button(15, 520, v_back, 0.8)
 
 # IMAGE IN ABOUT
 
@@ -98,13 +94,11 @@ back_a = button.Button(15, 520, a_back, 0.8)
 
 # IMAGE IN ABILITIES
 
-
 b_next = pygame.image.load('assets/next.png')
 l_abilities = pygame.image.load('assets/abilitieslogo.png')
 back_z = pygame.image.load('assets/back.png')
 
 # FUNCTION BUTTON IN ABILITIES
-
 
 forward_n = button.Button(399, 520, b_next, 0.8)
 abilities_l = button.Button(0, 120, l_abilities, 1.0)
@@ -128,6 +122,31 @@ f_tripleman = pygame.image.load('assets/tripleman.png')
 # IMAGE IN SPECIAL B
 
 f_specialb = pygame.image.load('assets/specialb.png')
+
+# IMAGE IN INFORMATION FOR ELEVEN
+
+e_eleven = pygame.image.load('assets/eleven.png')
+
+# IMAGE IN INFORMATION FOR MIKE
+
+e_mike = pygame.image.load('assets/mike.png')
+
+# IMAGE IN INFORMATION FOR LUCAS
+
+e_lucas = pygame.image.load('assets/lucas.png')
+
+# IMAGE IN INFORMATION FOR DUSTIN
+
+e_dustin = pygame.image.load('assets/dustin.png')
+
+# IMAGE IN INFORMATION FOR PLACES PART ONE
+
+e_partone = pygame.image.load('assets/partone.png')
+
+# IMAGE IN INFORMATION FOR PLACES PART TWO
+
+e_parttwo = pygame.image.load('assets/parttwo.png')
+
 
 #SET UP OF EVERY SCREEN IN THE GAME
 #CUSTOMIZE OR PUTTING A FUNCTION IN THE GAME IS ALSO IN DOWN
@@ -207,12 +226,9 @@ def option():
 
         
         #SCREEN TO SCREEN 
-        if videos_button.draw(screen):
+        if information_button.draw(screen):
             if click:
-                videos()
-        if sounds_button.draw(screen):
-            if click:
-                sounds()
+                information()
         if keypads_button.draw(screen):
             if click:
                 keypads()
@@ -279,8 +295,6 @@ def abilities():
         mainClock.tick(60)
 
 
-
-
 # SET UP IN KEYPADS
 def keypads():
     running = True
@@ -315,14 +329,17 @@ def keypads():
 
 # SET UP IN SOUNDS
 
-def sounds():
+def information():
     running = True
     while running:
         #SCREEN
         screen.blit(bg_background, (0,0))
-        draw_text("SOUNDS", font, (255, 255, 255), screen, 20, 20)
-
-        if back_s.draw(screen):
+        screen.blit(i_logo, (0,120))
+        draw_text("INFORMATION", font, (255, 255, 255), screen, 20, 20)
+        if infromation_forward.draw(screen):
+            if click:
+                eleven()
+        if back_i.draw(screen):
             if click:
                 option()
 
@@ -338,34 +355,6 @@ def sounds():
 
         pygame.display.update()
         mainClock.tick(60)
-
-
-# SET UP IN VIDEOS
-
-def videos():
-    running = True
-    while running:
-        #SCREEN
-        screen.blit(bg_background, (0,0))
-        draw_text("VIDEOS", font, (255, 255, 255), screen, 20, 20)
-
-        if back_v.draw(screen):
-            if click:
-                option()
-
-        click = False
-        #GAME LOOP
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == MOUSEBUTTONDOWN:
-                if event.button == 1:
-                    click = True
-
-        pygame.display.update()
-        mainClock.tick(60)
-
 
 
 # SET UP IN ABOUTS
@@ -541,8 +530,7 @@ def special_b():
         screen.blit(f_specialb, (0,100))
         draw_text("SPECIAL B", font, (255, 255, 255), screen, 20, 20)
         
-        if forward_n.draw(screen):
-            pass
+        
         if back_back.draw(screen):
             if click:
                 tripleman()
@@ -563,4 +551,204 @@ def special_b():
         pygame.display.update()
         mainClock.tick(60)
 
+# SET UP IN FIRST INFORMATION
+
+def eleven():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(e_eleven, (0,30))
+        draw_text("ELEVEN", font, (255, 255, 255), screen, 20, 20)
+        
+        
+        if infromation_forward.draw(screen):
+            if click:
+                mike()
+        if back_i.draw(screen):
+            if click:
+                information()
+        click = False   
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+# SET UP IN SECOND INFORMATION
+
+def mike():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(e_mike, (0,30))
+        draw_text("MIKE", font, (255, 255, 255), screen, 20, 20)
+        
+        
+        if infromation_forward.draw(screen):
+            if click:
+                lucas()
+        if back_i.draw(screen):
+            if click:
+                eleven()
+        click = False   
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+# SET UP IN THIRD INFORMATION
+
+def lucas():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(e_lucas, (0,30))
+        draw_text("LUCAS", font, (255, 255, 255), screen, 20, 20)
+        
+        
+        if infromation_forward.draw(screen):
+            if click:
+                dustin()
+        if back_i.draw(screen):
+            if click:
+                mike()
+        click = False   
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+# SET UP IN FOURTH INFORMATION
+
+def dustin():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(e_dustin, (0,30))
+        draw_text("DUSTIN", font, (255, 255, 255), screen, 20, 20)
+        
+        
+        if infromation_forward.draw(screen):
+            if click:
+                partone()
+        if back_i.draw(screen):
+            if click:
+                lucas()
+        click = False   
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+# SET UP IN PLACES PART ONE
+
+def partone():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(e_partone, (0,30))
+        draw_text("PARTONE", font, (255, 255, 255), screen, 20, 20)
+        
+        
+        if infromation_forward.draw(screen):
+            if click:
+                parttwo()
+        if back_i.draw(screen):
+            if click:
+                dustin()
+        click = False   
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+# SET UP IN PLACES PART TWO
+
+def parttwo():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(e_parttwo, (0,30))
+        draw_text("PARTTWO", font, (255, 255, 255), screen, 20, 20)
+        
+        
+        if back_i.draw(screen):
+            if click:
+                partone()
+        click = False   
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
 game_menu()
