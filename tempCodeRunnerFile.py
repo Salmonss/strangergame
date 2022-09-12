@@ -1,2 +1,0 @@
-
-                raf_mania()

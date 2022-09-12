@@ -2,6 +2,7 @@
 
 import pygame, sys
 import button
+from pygame import mixer
 
 mainClock = pygame.time.Clock()
 from pygame.locals import *
@@ -16,7 +17,7 @@ font = pygame.font.SysFont(None , 20)
 
 #GAME CAPTIONS
 pygame.display.set_caption('STRANGER SHOOTER GAME')
-icon = pygame.image.load('assets/alien.png')
+icon = pygame.image.load('assets/gamelogo.png')
 pygame.display.set_icon(icon)
 
 #IMAGE FUCNTIONS
@@ -26,9 +27,13 @@ def draw_text (text, font, color, surface, x, y):
     textrect.topleft = (x,y)
     surface.blit(textobj, textrect)
 
+# BACKGROUND MUSIC
+mixer.music.load('sound/game.wav')
+mixer.music.play(-1)
+
 #VARIABLE 
 click = False
-go = False
+fade = 0
 
 # IMAGE LIBRARY
 # IMAGE IN GAME MENU
@@ -147,6 +152,30 @@ e_partone = pygame.image.load('assets/partone.png')
 
 e_parttwo = pygame.image.load('assets/parttwo.png')
 
+# IMAGE IN SELECTION SCREEN
+
+s_logo = pygame.image.load('assets/selectlogo.png')
+el_logo = pygame.image.load('assets/elevenlogo.png')
+m_logo = pygame.image.load('assets/mikelogo.png')
+l_logo = pygame.image.load('assets/lucaslogo.png')
+d_logo = pygame.image.load('assets/dustinlogo.png')
+
+# BUTTON IN SELECTION SCREEN
+
+b_eleven = pygame.image.load('assets/elevenlogos.png')
+b_mike = pygame.image.load('assets/mikelogos.png')
+b_lucas = pygame.image.load('assets/lucaslogos.png')
+b_dustin = pygame.image.load('assets/dustinlogos.png')
+b_bselection = pygame.image.load('assets/back.png')
+
+# FUNCTION IN SELECTION SCREEN
+
+eleven_button = button.Button(1, 310, b_eleven, 0.7)
+mike_button = button.Button(190, 310, b_mike, 0.7)
+lucas_button = button.Button(380, 310, b_lucas, 0.7)
+dustin_button = button.Button(580, 310, b_dustin, 0.7)
+
+
 
 #SET UP OF EVERY SCREEN IN THE GAME
 #CUSTOMIZE OR PUTTING A FUNCTION IN THE GAME IS ALSO IN DOWN
@@ -167,12 +196,19 @@ def game_menu():
         
         if start_button.draw(screen):
             if click:
-                game()
+                start_sound = mixer.Sound('sound/buttoneffect.wav')
+                start_sound.play()
+                game_selection()
         if option_button.draw(screen):
             if click:
+                option_sound = mixer.Sound('sound/buttoneffect.wav')
+                option_sound.play()
                 option()
+            
         if abilities_button.draw(screen):
             if click:
+                abilities_sound = mixer.Sound('sound/buttoneffect.wav')
+                abilities_sound.play()
                 abilities()
         
 
@@ -196,12 +232,37 @@ def game_menu():
 
 
 # SET UP IN GAME
-def game():
+def game_selection():
     running = True
     while running:
         #SCREEN
-        screen.blit(bg_bg,(0, 0))
-        draw_text("Game", font, (255, 255, 255), screen, 20, 20)
+        screen.blit(bg_background,(0, 0))
+        screen.blit(s_logo,(0, 0))
+        draw_text("Game Selection", font, (255, 255, 255), screen, 20, 20)
+        
+        if eleven_button.draw(screen):
+            if click:
+                elbutton_sound = mixer.Sound('sound/buttoneffect.wav')
+                elbutton_sound.play()
+                pass
+        
+        if mike_button.draw(screen):
+            if click:
+                mbutton_sound = mixer.Sound('sound/buttoneffect.wav')
+                mbutton_sound.play()
+                pass
+
+        if lucas_button.draw(screen):
+            if click:
+                lbutton_sound = mixer.Sound('sound/buttoneffect.wav')
+                lbutton_sound.play()
+                pass
+
+        if dustin_button.draw(screen):
+            if click:
+                dbutton_sound = mixer.Sound('sound/buttoneffect.wav')
+                dbutton_sound.play()
+                pass
 
         #GAME LOOP
         for event in pygame.event.get():
@@ -211,6 +272,9 @@ def game():
             if event.type == KEYDOWN:
                 if event.key == K_ESCAPE:
                    running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
 
         pygame.display.update()
         mainClock.tick(60)
@@ -228,15 +292,23 @@ def option():
         #SCREEN TO SCREEN 
         if information_button.draw(screen):
             if click:
+                information_sound = mixer.Sound('sound/buttoneffect.wav')
+                information_sound.play()
                 information()
         if keypads_button.draw(screen):
             if click:
+                keypads_sound = mixer.Sound('sound/buttoneffect.wav')
+                keypads_sound.play()
                 keypads()
         if about_button.draw(screen):
             if click:
+                about_sound = mixer.Sound('sound/buttoneffect.wav')
+                about_sound.play()
                 about()
         if back_button.draw(screen):
             if click:
+                back_sound = mixer.Sound('sound/buttoneffect.wav')
+                back_sound.play()
                 game_menu()
 
         click = False
@@ -267,9 +339,13 @@ def abilities():
         #SCREEN TO SCREEN 
         if forward_n.draw(screen):
             if click:
+                forward_sound = mixer.Sound('sound/buttoneffect.wav')
+                forward_sound.play()
                 bullet_tistic()
         if back_back.draw(screen):
             if click:
+                back_sound = mixer.Sound('sound/buttoneffect.wav')
+                back_sound.play()
                 game_menu()
         
         if abilities_l.draw(screen):
@@ -310,6 +386,8 @@ def keypads():
         
         if back_kp.draw(screen):
             if click:
+                back_sound = mixer.Sound('sound/buttoneffect.wav')
+                back_sound.play()
                 option()
             
 
@@ -338,9 +416,13 @@ def information():
         draw_text("INFORMATION", font, (255, 255, 255), screen, 20, 20)
         if infromation_forward.draw(screen):
             if click:
+                informations_sound = mixer.Sound('sound/buttoneffect.wav')
+                informations_sound.play()
                 eleven()
         if back_i.draw(screen):
             if click:
+                back_sound = mixer.Sound('sound/buttoneffect.wav')
+                back_sound.play()
                 option()
 
         click = False
@@ -369,6 +451,8 @@ def about():
         
         if back_a.draw(screen):
             if click:
+                back_sound = mixer.Sound('sound/buttoneffect.wav')
+                back_sound.play()
                 option()
         
         click = False
@@ -397,9 +481,13 @@ def bullet_tistic():
         
         if forward_n.draw(screen):
             if click:
+                rafmania_sound = mixer.Sound('sound/buttoneffect.wav')
+                rafmania_sound.play()
                 raf_mania()
         if back_back.draw(screen):
             if click:
+                back_sound = mixer.Sound('sound/buttoneffect.wav')
+                back_sound.play()
                 abilities()
         click = False   
         #GAME LOOP
@@ -431,9 +519,13 @@ def raf_mania():
         
         if forward_n.draw(screen):
             if click:
+                kaboom_sound = mixer.Sound('sound/buttoneffect.wav')
+                kaboom_sound.play()
                 kaboom()
         if back_back.draw(screen):
             if click:
+                back_sound = mixer.Sound('sound/buttoneffect.wav')
+                back_sound.play()
                 bullet_tistic()
         click = False   
         #GAME LOOP
@@ -465,9 +557,13 @@ def kaboom():
         
         if forward_n.draw(screen):
             if click:
+                tripleman_sound = mixer.Sound('sound/buttoneffect.wav')
+                tripleman_sound.play()
                 tripleman()
         if back_back.draw(screen):
             if click:
+                back_sound = mixer.Sound('sound/buttoneffect.wav')
+                back_sound.play()
                 raf_mania()
         click = False   
         #GAME LOOP
@@ -499,9 +595,13 @@ def tripleman():
         
         if forward_n.draw(screen):
             if click:
+                specialb_sound = mixer.Sound('sound/buttoneffect.wav')
+                specialb_sound.play()
                 special_b()
         if back_back.draw(screen):
             if click:
+                back_sound = mixer.Sound('sound/buttoneffect.wav')
+                back_sound.play()
                 kaboom()
         click = False   
         #GAME LOOP
@@ -533,6 +633,8 @@ def special_b():
         
         if back_back.draw(screen):
             if click:
+                back_sound = mixer.Sound('sound/buttoneffect.wav')
+                back_sound.play()
                 tripleman()
         click = False   
         #GAME LOOP
@@ -564,9 +666,13 @@ def eleven():
         
         if infromation_forward.draw(screen):
             if click:
+                mike_sound = mixer.Sound('sound/buttoneffect.wav')
+                mike_sound.play()
                 mike()
         if back_i.draw(screen):
             if click:
+                back_sound = mixer.Sound('sound/buttoneffect.wav')
+                back_sound.play()
                 information()
         click = False   
         #GAME LOOP
@@ -598,9 +704,13 @@ def mike():
         
         if infromation_forward.draw(screen):
             if click:
+                lucas_sound = mixer.Sound('sound/buttoneffect.wav')
+                lucas_sound.play()
                 lucas()
         if back_i.draw(screen):
             if click:
+                eleven_sound = mixer.Sound('sound/buttoneffect.wav')
+                eleven_sound.play()
                 eleven()
         click = False   
         #GAME LOOP
@@ -632,9 +742,13 @@ def lucas():
         
         if infromation_forward.draw(screen):
             if click:
+                dustin_sound = mixer.Sound('sound/buttoneffect.wav')
+                dustin_sound.play()
                 dustin()
         if back_i.draw(screen):
             if click:
+                mike_sound = mixer.Sound('sound/buttoneffect.wav')
+                mike_sound.play()
                 mike()
         click = False   
         #GAME LOOP
@@ -666,9 +780,13 @@ def dustin():
         
         if infromation_forward.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 partone()
         if back_i.draw(screen):
             if click:
+                lucas_sound = mixer.Sound('sound/buttoneffect.wav')
+                lucas_sound.play()
                 lucas()
         click = False   
         #GAME LOOP
@@ -700,9 +818,13 @@ def partone():
         
         if infromation_forward.draw(screen):
             if click:
+                parttwo_sound = mixer.Sound('sound/buttoneffect.wav')
+                parttwo_sound.play()
                 parttwo()
         if back_i.draw(screen):
             if click:
+                dustin_sound = mixer.Sound('sound/buttoneffect.wav')
+                dustin_sound.play()
                 dustin()
         click = False   
         #GAME LOOP
@@ -730,10 +852,11 @@ def parttwo():
         screen.blit(bg_background, (0,0))
         screen.blit(e_parttwo, (0,30))
         draw_text("PARTTWO", font, (255, 255, 255), screen, 20, 20)
-        
-        
+
         if back_i.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 partone()
         click = False   
         #GAME LOOP
@@ -751,4 +874,5 @@ def parttwo():
 
         pygame.display.update()
         mainClock.tick(60)
+
 game_menu()
