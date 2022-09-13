@@ -103,11 +103,13 @@ b_next = pygame.image.load('assets/next.png')
 l_abilities = pygame.image.load('assets/abilitieslogo.png')
 back_z = pygame.image.load('assets/back.png')
 
+
 # FUNCTION BUTTON IN ABILITIES
 
 forward_n = button.Button(399, 520, b_next, 0.8)
 abilities_l = button.Button(0, 120, l_abilities, 1.0)
 back_back = button.Button(120, 520, back_z, 0.8)
+
 
 # IMAGE IN BULLETISTIC
 f_bulletistic = pygame.image.load('assets/bulletistic.png')
@@ -155,11 +157,13 @@ e_parttwo = pygame.image.load('assets/parttwo.png')
 # IMAGE IN SELECTION SCREEN
 
 s_logo = pygame.image.load('assets/selectlogo.png')
-el_logo = pygame.image.load('assets/elevenlogo.png')
-m_logo = pygame.image.load('assets/mikelogo.png')
-l_logo = pygame.image.load('assets/lucaslogo.png')
-d_logo = pygame.image.load('assets/dustinlogo.png')
 
+# IMAGE IN SELECTION SCREEN 
+
+l_eleven = pygame.image.load('assets/elevenlogo.png')
+l_mike = pygame.image.load('assets/mikelogo.png')
+l_lucas = pygame.image.load('assets/lucaslogo.png')
+l_dustin = pygame.image.load('assets/dustinlogo.png')
 # BUTTON IN SELECTION SCREEN
 
 b_eleven = pygame.image.load('assets/elevenlogos.png')
@@ -167,6 +171,7 @@ b_mike = pygame.image.load('assets/mikelogos.png')
 b_lucas = pygame.image.load('assets/lucaslogos.png')
 b_dustin = pygame.image.load('assets/dustinlogos.png')
 b_bselection = pygame.image.load('assets/back.png')
+balik_lobby = pygame.image.load('assets/lobbybutton.png')
 
 # FUNCTION IN SELECTION SCREEN
 
@@ -174,8 +179,23 @@ eleven_button = button.Button(1, 310, b_eleven, 0.7)
 mike_button = button.Button(190, 310, b_mike, 0.7)
 lucas_button = button.Button(380, 310, b_lucas, 0.7)
 dustin_button = button.Button(580, 310, b_dustin, 0.7)
+lobby_button = button.Button(270, 570, balik_lobby, 0.8)
+
+# IMAGE IN PLACE REVIEW 
+
+place_r = pygame.image.load('assets/placereview.png')
+E_for = pygame.image.load('assets/elevenbutton.png')
+M_for = pygame.image.load('assets/mikebutton.png')
+L_for = pygame.image.load('assets/lucasbutton.png')
+D_for = pygame.image.load('assets/dustinbutton.png')
 
 
+#BUTTON IN PLACE REVIEW
+
+p_eleven = button.Button(270, 530, E_for, 0.8)
+p_mike = button.Button(270, 530, M_for, 0.8)
+p_lucas = button.Button(270, 530, L_for, 0.8)
+p_dustin = button.Button(270, 530, D_for, 0.8)
 
 #SET UP OF EVERY SCREEN IN THE GAME
 #CUSTOMIZE OR PUTTING A FUNCTION IN THE GAME IS ALSO IN DOWN
@@ -238,31 +258,41 @@ def game_selection():
         #SCREEN
         screen.blit(bg_background,(0, 0))
         screen.blit(s_logo,(0, 0))
+        screen.blit(l_eleven,(-40, 340))
+        screen.blit(l_mike,(150, 340))
+        screen.blit(l_lucas,(340, 340))
+        screen.blit(l_dustin,(540, 340))
         draw_text("Game Selection", font, (255, 255, 255), screen, 20, 20)
         
         if eleven_button.draw(screen):
             if click:
                 elbutton_sound = mixer.Sound('sound/buttoneffect.wav')
                 elbutton_sound.play()
-                pass
+                Eplacereview()
         
         if mike_button.draw(screen):
             if click:
                 mbutton_sound = mixer.Sound('sound/buttoneffect.wav')
                 mbutton_sound.play()
-                pass
+                Mplacereview()
 
         if lucas_button.draw(screen):
             if click:
                 lbutton_sound = mixer.Sound('sound/buttoneffect.wav')
                 lbutton_sound.play()
-                pass
+                Lplacereview()
 
         if dustin_button.draw(screen):
             if click:
                 dbutton_sound = mixer.Sound('sound/buttoneffect.wav')
                 dbutton_sound.play()
-                pass
+                Dplacereview()
+
+        if lobby_button.draw(screen):
+            if click:
+                dbutton_sound = mixer.Sound('sound/buttoneffect.wav')
+                dbutton_sound.play()
+                game_menu()   
 
         #GAME LOOP
         for event in pygame.event.get():
@@ -874,5 +904,133 @@ def parttwo():
 
         pygame.display.update()
         mainClock.tick(60)
+
+# ELEVEN PERSPECTIVE SCREEN AND PLACES REVIEW
+
+def Eplacereview():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_r, (0, 170))
+        draw_text("PLACE REVIEW", font, (255, 255, 255), screen, 20, 20)
+
+        if p_eleven.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                pass
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+# MIKE PERSPECTIVE SCREEN ADN PLACES REVIEW
+
+def Mplacereview():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_r, (0, 170))
+        draw_text("PLACE REVIEW", font, (255, 255, 255), screen, 20, 20)
+
+        if p_mike.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                pass
+ 
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+# LUCAS PERSPECTIVE SCREEN AND PLACES REVIEW
+
+def Lplacereview():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_r, (0, 170))
+        draw_text("PLACE REVIEW", font, (255, 255, 255), screen, 20, 20)
+
+        if p_lucas.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                pass
+ 
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+# DUSTIN PERSPECTIVE SCREEN AND PLACES REVIEW
+
+def Dplacereview():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_r, (0, 170))
+        draw_text("PLACE REVIEW", font, (255, 255, 255), screen, 20, 20)
+
+        if p_dustin.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                pass
+ 
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
 
 game_menu()
