@@ -48,7 +48,7 @@ bg_background = pygame.image.load('assets/background.png')
 # FUNCTION BUTTONS IN GAME MENU
 
 start_button = button.Button(280, 450, start_img, 0.8)
-option_button = button.Button(5, 500, option_img, 0.8)
+option_button = button.Button(280, 550, option_img, 0.8)
 abilities_button = button.Button(540, 500, abilities_img, 0.8)
 
 # IMAGE IN OPTIONS
@@ -96,40 +96,6 @@ a_aboutss = pygame.image.load('assets/aboutss.png')
 # FUNCTION BUTTON IN ABOUTS
 
 back_a = button.Button(15, 520, a_back, 0.8)
-
-
-# IMAGE IN ABILITIES
-
-b_next = pygame.image.load('assets/next.png')
-l_abilities = pygame.image.load('assets/abilitieslogo.png')
-back_z = pygame.image.load('assets/back.png')
-
-
-# FUNCTION BUTTON IN ABILITIES
-
-forward_n = button.Button(399, 520, b_next, 0.8)
-abilities_l = button.Button(0, 120, l_abilities, 1.0)
-back_back = button.Button(120, 520, back_z, 0.8)
-
-
-# IMAGE IN BULLETISTIC
-f_bulletistic = pygame.image.load('assets/bulletistic.png')
-
-# IMAGE IN RAFMANIA
-f_rafmania = pygame.image.load('assets/rafmania.png')
-
-
-# IMAGE IN KABOOM
-
-f_kaboom = pygame.image.load('assets/kaboom.png')
-
-# IMAGE IN TRIPLEMAN
-
-f_tripleman = pygame.image.load('assets/tripleman.png')
-
-# IMAGE IN SPECIAL B
-
-f_specialb = pygame.image.load('assets/specialb.png')
 
 # IMAGE IN INFORMATION FOR ELEVEN
 
@@ -227,13 +193,6 @@ def game_menu():
                 option_sound = mixer.Sound('sound/buttoneffect.wav')
                 option_sound.play()
                 option()
-            
-        if abilities_button.draw(screen):
-            if click:
-                abilities_sound = mixer.Sound('sound/buttoneffect.wav')
-                abilities_sound.play()
-                abilities()
-        
 
         click = False
         #GAME LOOP
@@ -359,51 +318,6 @@ def option():
         mainClock.tick(60)
 
 
-# SET UP IN ABILITIES
-def abilities():
-    running = True
-    while running:
-        #SCREEN
-        screen.blit(bg_background, (0,0 ))
-        
-
-        draw_text("ABILITIES", font, (255, 255, 255), screen, 20, 20)
-        
-        #SCREEN TO SCREEN 
-        if forward_n.draw(screen):
-            if click:
-                forward_sound = mixer.Sound('sound/buttoneffect.wav')
-                forward_sound.play()
-                bullet_tistic()
-        if back_back.draw(screen):
-            if click:
-                back_sound = mixer.Sound('sound/buttoneffect.wav')
-                back_sound.play()
-                game_menu()
-        
-        if abilities_l.draw(screen):
-            if click:
-                pass          
-            
-        click = False
-        #GAME LOOP
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == KEYDOWN:
-                if event.key == K_ESCAPE:
-                   running = False   
-            if event.type == MOUSEBUTTONDOWN:
-                if event.button == 1:
-                    click = True
-                
-            
-
-        pygame.display.update()
-        mainClock.tick(60)
-
-
 # SET UP IN KEYPADS
 def keypads():
     running = True
@@ -501,190 +415,6 @@ def about():
         pygame.display.update()
         mainClock.tick(60)
 
-
-# SET UP IN FIRST ABILITIES
-
-def bullet_tistic():
-    running = True
-    while running:
-        #SCREEN
-        screen.blit(bg_background, (0,0))
-        screen.blit(f_bulletistic, (0,100))
-        draw_text("BULLETISTIC", font, (255, 255, 255), screen, 20, 20)
-        
-        if forward_n.draw(screen):
-            if click:
-                rafmania_sound = mixer.Sound('sound/buttoneffect.wav')
-                rafmania_sound.play()
-                raf_mania()
-        if back_back.draw(screen):
-            if click:
-                back_sound = mixer.Sound('sound/buttoneffect.wav')
-                back_sound.play()
-                abilities()
-        click = False   
-        #GAME LOOP
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == KEYDOWN:
-                if event.key == K_ESCAPE:
-                   running = False
-            if event.type == MOUSEBUTTONDOWN:
-                if event.button == 1:
-                    click = True
-            
-
-        pygame.display.update()
-        mainClock.tick(60)
-
-
-# SET UP IN SECOND ABILITIES
-
-def raf_mania():
-    running = True
-    while running:
-        #SCREEN
-        screen.blit(bg_background, (0,0))
-        screen.blit(f_rafmania, (0,100))
-        draw_text("RAFMANIA", font, (255, 255, 255), screen, 20, 20)
-        
-        if forward_n.draw(screen):
-            if click:
-                kaboom_sound = mixer.Sound('sound/buttoneffect.wav')
-                kaboom_sound.play()
-                kaboom()
-        if back_back.draw(screen):
-            if click:
-                back_sound = mixer.Sound('sound/buttoneffect.wav')
-                back_sound.play()
-                bullet_tistic()
-        click = False   
-        #GAME LOOP
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == KEYDOWN:
-                if event.key == K_ESCAPE:
-                   running = False
-            if event.type == MOUSEBUTTONDOWN:
-                if event.button == 1:
-                    click = True
-            
-
-        pygame.display.update()
-        mainClock.tick(60)
-
-
-# SET UP IN THIRD ABILITIES
-
-def kaboom():
-    running = True
-    while running:
-        #SCREEN
-        screen.blit(bg_background, (0,0))
-        screen.blit(f_kaboom, (0,100))
-        draw_text("KABOOM", font, (255, 255, 255), screen, 20, 20)
-        
-        if forward_n.draw(screen):
-            if click:
-                tripleman_sound = mixer.Sound('sound/buttoneffect.wav')
-                tripleman_sound.play()
-                tripleman()
-        if back_back.draw(screen):
-            if click:
-                back_sound = mixer.Sound('sound/buttoneffect.wav')
-                back_sound.play()
-                raf_mania()
-        click = False   
-        #GAME LOOP
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == KEYDOWN:
-                if event.key == K_ESCAPE:
-                   running = False
-            if event.type == MOUSEBUTTONDOWN:
-                if event.button == 1:
-                    click = True
-            
-
-        pygame.display.update()
-        mainClock.tick(60)
-
-
-# SET UP IN FOURT ABILITIES
-
-def tripleman():
-    running = True
-    while running:
-        #SCREEN
-        screen.blit(bg_background, (0,0))
-        screen.blit(f_tripleman, (0,100))
-        draw_text("TRIPLEMAN", font, (255, 255, 255), screen, 20, 20)
-        
-        if forward_n.draw(screen):
-            if click:
-                specialb_sound = mixer.Sound('sound/buttoneffect.wav')
-                specialb_sound.play()
-                special_b()
-        if back_back.draw(screen):
-            if click:
-                back_sound = mixer.Sound('sound/buttoneffect.wav')
-                back_sound.play()
-                kaboom()
-        click = False   
-        #GAME LOOP
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == KEYDOWN:
-                if event.key == K_ESCAPE:
-                   running = False
-            if event.type == MOUSEBUTTONDOWN:
-                if event.button == 1:
-                    click = True
-            
-
-        pygame.display.update()
-        mainClock.tick(60)
-
-# SET UP IN FIVE ABILITIES
-
-def special_b():
-    running = True
-    while running:
-        #SCREEN
-        screen.blit(bg_background, (0,0))
-        screen.blit(f_specialb, (0,100))
-        draw_text("SPECIAL B", font, (255, 255, 255), screen, 20, 20)
-        
-        
-        if back_back.draw(screen):
-            if click:
-                back_sound = mixer.Sound('sound/buttoneffect.wav')
-                back_sound.play()
-                tripleman()
-        click = False   
-        #GAME LOOP
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == KEYDOWN:
-                if event.key == K_ESCAPE:
-                   running = False
-            if event.type == MOUSEBUTTONDOWN:
-                if event.button == 1:
-                    click = True
-            
-
-        pygame.display.update()
-        mainClock.tick(60)
 
 # SET UP IN FIRST INFORMATION
 
@@ -953,7 +683,7 @@ def Mplacereview():
             if click:
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
-                pass
+                Mplay()
  
         #GAME LOOP
         for event in pygame.event.get():
@@ -985,7 +715,7 @@ def Lplacereview():
             if click:
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
-                pass
+                Lplay()
  
         #GAME LOOP
         for event in pygame.event.get():
@@ -1017,7 +747,7 @@ def Dplacereview():
             if click:
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
-                pass
+                Dplay()
  
         #GAME LOOP
         for event in pygame.event.get():
@@ -1039,27 +769,68 @@ def Dplacereview():
 # LEVEL NUMBER 1
 player_eleven = pygame.image.load('assets/ElevenSpace.png')
 enemy_eleven = pygame.image.load('assets/alien.png')
+enemy_elevenn = pygame.image.load('assets/alien2.png')
 bullets_eleven = pygame.image.load('assets/bullet.png')
 places_level = pygame.image.load("assets/level1place.png")
+success = pygame.image.load("assets/elevenbutton.png")
 
+#LEVEL 2
+enemy_level = pygame.image.load("assets/level2alien2.png")
+enemy_level2 = pygame.image.load("assets/level2alien.png")
+places_level2 = pygame.image.load("assets/level2place.png")
+
+
+#LEVEL 3
+enemy_levell3 = pygame.image.load("assets/ufolevel1.png")
+enemy_level3 = pygame.image.load("assets/ufolevel.png")
+places_level3 = pygame.image.load("assets/placeslevel3.png")
+
+#LEVEL 4
+enemy_levell4 = pygame.image.load("assets/ufolevel33.png")
+enemy_level4 = pygame.image.load("assets/ufolevel3.png")
+places_level4 = pygame.image.load("assets/placeslevel4.png")
+
+umulit = button.Button(500, 570, success, 0.8)
 # DISPLAY 
 def Display(x,y):
     screen.blit(player_eleven, (x,y))
 # ENEMY
 def Enemy(x,y):
+    screen.blit(enemy_elevenn, (x,y))
+def Enemies(x,y):
     screen.blit(enemy_eleven, (x,y))
+def Enemieslevel(x,y):
+    screen.blit(enemy_level, (x,y))
+def Enemieslevel2(x,y):
+    screen.blit(enemy_level2, (x,y))
+def Enemieslevell(x,y):
+    screen.blit(enemy_levell3, (x,y))
+def Enemieslevel3(x,y):
+    screen.blit(enemy_level3, (x,y))
+def Enemieslevelll4(x,y):
+    screen.blit(enemy_levell4, (x,y))
+def Enemieslevel4(x,y):
+    screen.blit(enemy_level4, (x,y))
+
     
 # BULLETS
 def fire_Bullets(x, y):
     global bullets_state
     bullets_state = "fire"
     screen.blit(bullets_eleven, (x + 16,y + 10))
+
 # SCORE BOARD
 def show_score(x,y):
     fonts = pygame.font.Font('freesansbold.ttf', 32)
     score_value = 0
     score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
     screen.blit(score, (x,y))
+
+# GAME OVER
+def gameover():
+    over_text = font.render("GAME OVER", True, (255,255,255))
+    screen.blit(over_text, (200,500))
+
 # COLLISION
 def isCollision (enemy_X, enemyY, bullet_X, bulletY):
     distance = math.sqrt(math.pow(enemy_X-bullet_X,2)+ (math.pow(enemyY-bulletY,2)))
@@ -1095,17 +866,51 @@ def threeCollision(enemiesss_X, enemiesssY, bullet_X, bulletY):
         return True
     else:
         return False
+# COLLISION SIX
+def fourCollision(enemiessss_X, enemiessssY, bullet_X, bulletY):
+    distance = math.sqrt(math.pow(enemiessss_X-bullet_X,2)+ (math.pow(enemiessssY-bulletY,2)))
+    if distance < 27:
+        return True
+    else:
+        return False
 
+# COLLISION SEVEN
+def fourCollision(enemies7_X, enemies7Y, bullet_X, bulletY):
+    distance = math.sqrt(math.pow(enemies7_X-bullet_X,2)+ (math.pow(enemies7Y-bulletY,2)))
+    if distance < 27:
+        return True
+    else:
+        return False
 
+# COLLISION SEVEN
+def fourCollision(enemies8_X, enemies8Y, bullet_X, bulletY):
+    distance = math.sqrt(math.pow(enemies8_X-bullet_X,2)+ (math.pow(enemies8Y-bulletY,2)))
+    if distance < 27:
+        return True
+    else:
+        return False
+
+# COLLISION SEVEN
+def fourCollision(enemies9_X, enemies9Y, bullet_X, bulletY):
+    distance = math.sqrt(math.pow(enemies9_X-bullet_X,2)+ (math.pow(enemies9Y-bulletY,2)))
+    if distance < 27:
+        return True
+    else:
+        return False
+
+#LEVEL 1
 def Eplay():
 
+    
+    # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
 
     # BULLET MOVEMENT
     bullets_eleven = pygame.image.load("assets/bullet.png")
     bullet_X = 0
     bulletY = 600
     bulletX_changed = 0
-    bulletY_changed = 15
+    bulletY_changed = 20
     bullets_state = "fire"
     
     # SCORE
@@ -1137,41 +942,74 @@ def Eplay():
     enemiessssX_changed = 3
     enemiessssY_changed = 40
 
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # EIGHT ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
+    # NINE ENEMIES
+    enemies9Y = random.randint(50,150)
+    enemies9_X = random.randint(0,736)
+    enemies9X_changed = 20
+    enemies9Y_changed = 0
+
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
     enemyX_changed = 3
     enemyY_changed = 40
-    
 
     #PLAYER MOVEMENT
     playerY = 600
     playerX_changed = 0
-    player_X = 370
+    player_X = 370  
 
     running = True
     while running:
         #SCREEN
         screen.blit(places_level, (0,0))
         draw_text("LEVEL1", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit.draw(screen):
+            if click:
+                EEplaylevel2() 
+
         #GAME LOOP   
-        
         for event in pygame.event.get():
         
             if event.type == QUIT:
                 running = False
+                pygame.quit()
                 sys.exit()    
             if event.type == KEYDOWN:
                 if event.key == pygame.K_LEFT:
                     playerX_changed = -5
                 if event.key == pygame.K_RIGHT:
                     playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
                     
 
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                     playerX_changed = 0
-    
+
+            
         # BOUNDARIES OF PLAYER
         player_X += playerX_changed
 
@@ -1181,54 +1019,110 @@ def Eplay():
             player_X = 736
         
         # ENEMY MOVEMENT
+        
+        
         enemy_X += enemyX_changed
         
-        if enemy_X <=0:
-            enemyX_changed = 3
+        if enemy_X <= 2:
+            enemyX_changed = 5
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -3
+            enemyX_changed = -5
             enemyY += enemyY_changed
-
+        
+        
         # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
         enemies_X += enemiesX_changed
 
-        if enemies_X <=0:
-            enemiesX_changed = 3
+        if enemies_X <=  2:
+            enemiesX_changed = 5
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -3
+            enemiesX_changed = -5
             enemiesY += enemiesY_changed
 
+
         # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
         enemiess_X += enemiessX_changed
 
-        if enemiess_X <=0:
-            enemiessX_changed = 3
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -3
+            enemiessX_changed = -5
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
+
         enemiesss_X += enemiesssX_changed
 
-        if enemiesss_X <=0:
-            enemiesssX_changed = 3
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -3
-            enemiesssY += enemiessY_changed
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
+        
         enemiessss_X += enemiessssX_changed
 
-        if enemiessss_X <=0:
-            enemiessssX_changed = 3
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -3
-            enemiessssY += enemiesssY_changed
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 20
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -20
+            enemiesssssY += enemiesssssY_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 1:
+            enemies7X_changed = 20
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -20
+            enemies7Y += enemies7Y_changed
+        
+        # EIGHT ENEMIES MOVEMENT
+        
+        enemies8_X += enemies8X_changed
+
+        if enemies8_X <= 1:
+            enemies8X_changed = 20
+            enemies8Y += enemies8Y_changed
+        elif enemies8_X >= 736:
+            enemies8X_changed = -20
+            enemies8Y += enemies8Y_changed
+        
+        # EIGHT ENEMIES MOVEMENT
+        
+        enemies9_X += enemies9X_changed
+
+        if enemies9_X <= 1:
+            enemies9X_changed = 20
+            enemies9Y += enemies9Y_changed
+        elif enemies9_X >= 736:
+            enemies9X_changed = -20
+            enemies9Y += enemies9Y_changed
+        
 
         # BULLET MOVEMENT
         if bulletY <= 0:
@@ -1247,23 +1141,22 @@ def Eplay():
         collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
         if collision:
             bullet_sound = mixer.Sound('sound/explosion.wav')
-            bullet_sound.play()  
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
             bulletY = 480
             bullets_state = "fire"
-            score_value += 1
-            print(score_value)
             enemyY = random.randint(50,150)
             enemy_X = random.randint(0,735)
+            
 
         # SECOND ENEMIES
         onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
         if onecollision:
             bullet_sound = mixer.Sound('sound/explosion.wav')
             bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
             bulletY = 480
             bullets_state = "fire"
-            score_value += 1
-            print(score_value)
             enemiesY = random.randint(50,150)
             enemies_X = random.randint(0,735)
 
@@ -1272,10 +1165,9 @@ def Eplay():
         if twocollision:
             bullet_sound = mixer.Sound('sound/explosion.wav')
             bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
             bulletY = 480
             bullets_state = "fire"
-            score_value += 1
-            print(score_value)
             enemiessY = random.randint(50,150)
             enemiess_X = random.randint(0,735)
         
@@ -1284,10 +1176,9 @@ def Eplay():
         if threecollision:
             bullet_sound = mixer.Sound('sound/explosion.wav')
             bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
             bulletY = 480
             bullets_state = "fire"
-            score_value += 1
-            print(score_value)
             enemiesssY = random.randint(50,150)
             enemiesss_X = random.randint(0,735)
         
@@ -1296,13 +1187,69 @@ def Eplay():
         if fourtcollision:
             bullet_sound = mixer.Sound('sound/explosion.wav')
             bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
             print(score_value)
-            enemiessssY = random.randint(50,150)
-            enemiessss_X = random.randint(0,735)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
 
+        # EIGHT ENEMIES
+        fivecollision = fourCollision(enemies8_X,enemies8Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies8_X,enemies8Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies8Y = random.randint(50,150)
+            enemies8_X = random.randint(0,735)
+        
+        # NINE ENEMIES
+        fivecollision = fourCollision(enemies9_X,enemies9Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies9_X,enemies9Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies9Y = random.randint(50,150)
+            enemies9_X = random.randint(0,735)
+
+
+        Enemies(enemies9_X, enemies9Y)
+        Enemies(enemies8_X, enemies8Y)   
+        Enemies(enemies7_X, enemies7Y)
+        Enemies(enemiesssss_X, enemiesssssY)
         Enemy(enemiessss_X, enemiessssY)
         Enemy(enemiesss_X, enemiesssY)
         Enemy(enemiess_X, enemiessY)
@@ -1311,5 +1258,5324 @@ def Eplay():
         Display(player_X,playerY)
         pygame.display.update()
         mainClock.tick(60)
+
+
+#LEVEL 2 PLACE
+
+def EEplaylevel2():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_review2, (0, 170))
+        draw_text("PLACE REVIEW FOR LEVEL 2", font, (255, 255, 255), screen, 20, 20)
+
+        if p_eleven.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                EEplay()
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+def EEplay():
+    # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 10
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 10
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 10
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 10
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # SEVEN ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 10
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level2, (0,0))
+        draw_text("LEVEL2", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit.draw(screen):
+            if click:
+                EEplaylevel3() 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 25
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -25
+            enemiesssssY += enemiesssssY_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 1:
+            enemies7X_changed = 25
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -25
+            enemies7Y += enemies7Y_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies8_X += enemies8X_changed
+
+        if enemies8_X <= 1:
+            enemies8X_changed = 25
+            enemies8Y += enemies8Y_changed
+        elif enemies8_X >= 736:
+            enemies8X_changed = -25
+            enemies8Y += enemies8Y_changed
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bullets(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
+
+        # EIGHT ENEMIES
+        fivecollision = fourCollision(enemies8_X,enemies8Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies8_X,enemies8Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies8Y = random.randint(50,150)
+            enemies8_X = random.randint(0,735)
+
+        
+        Enemieslevel(enemies8_X, enemies8Y)
+        Enemieslevel(enemies7_X, enemies7Y)
+        Enemieslevel(enemiesssss_X, enemiesssssY)
+        Enemieslevel2(enemiessss_X, enemiessssY)
+        Enemieslevel2(enemiesss_X, enemiesssY)
+        Enemieslevel2(enemiess_X, enemiessY)
+        Enemieslevel2(enemies_X, enemiesY)
+        Enemieslevel2(enemy_X, enemyY)
+        Display(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
+
+#LEVEL 3 PLACE
+
+def EEplaylevel3():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_review3, (0, 170))
+        draw_text("PLACE REVIEW FOR LEVEL 3", font, (255, 255, 255), screen, 20, 20)
+
+        if p_eleven.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                EEEplay()
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+def EEEplay():
+     # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 10
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 10
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 10
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 10
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # SEVEN ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 10
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level3, (0,0))
+        draw_text("LEVEL3", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit.draw(screen):
+            if click:
+                EEplaylevel4() 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 30
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -30
+            enemiesssssY += enemiesssssY_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 1:
+            enemies7X_changed = 30
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -30
+            enemies7Y += enemies7Y_changed
+        
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bullets(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
+
+
+        
+        
+        Enemieslevell(enemies7_X, enemies7Y)
+        Enemieslevell(enemiesssss_X, enemiesssssY)
+        Enemieslevel3(enemiessss_X, enemiessssY)
+        Enemieslevel3(enemiesss_X, enemiesssY)
+        Enemieslevel3(enemiess_X, enemiessY)
+        Enemieslevel3(enemies_X, enemiesY)
+        Enemieslevel3(enemy_X, enemyY)
+        Display(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
+#LEVEL 4 PLACE
+
+def EEplaylevel4():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_review4, (0, 170))
+        draw_text("PLACE REVIEW FOR LEVEL 4", font, (255, 255, 255), screen, 20, 20)
+
+        if p_eleven.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                EEEEplay()
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+def EEEEplay():
+     # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 10
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 10
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 10
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 10
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 10
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level4, (0,0))
+        draw_text("LEVEL4", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit.draw(screen):
+            if click:
+                pass 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 40
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -40
+            enemiesssssY += enemiesssssY_changed
+        
+        
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bullets(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+
+        
+        
+        Enemieslevelll4(enemiesssss_X, enemiesssssY)
+        Enemieslevel4(enemiessss_X, enemiessssY)
+        Enemieslevel4(enemiesss_X, enemiesssY)
+        Enemieslevel4(enemiess_X, enemiessY)
+        Enemieslevel4(enemies_X, enemiesY)
+        Enemieslevel4(enemy_X, enemyY)
+        Display(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
+
+# MIKE PERSPECTIVE SCREEN WHILE PLAYING 
+# LEVEL NUMBER 1
+player_mike = pygame.image.load('assets/mikespace.png')
+enemy_eleven = pygame.image.load('assets/alien.png')
+enemy_elevenn = pygame.image.load('assets/alien2.png')
+bullets_eleven = pygame.image.load('assets/bullet.png')
+bullets_mike = pygame.image.load('assets/bulletmike.png')
+places_level = pygame.image.load("assets/level1place.png")
+success = pygame.image.load("assets/elevenbutton.png")
+success_mike = pygame.image.load("assets/mikebutton.png")
+place_review2 = pygame.image.load('assets/placereviewlevel2.png')
+place_review3 = pygame.image.load('assets/placereviewlevel3.png')
+place_review4 = pygame.image.load('assets/placereviewlevel4.png')
+
+#LEVEL 2
+enemy_level = pygame.image.load("assets/level2alien2.png")
+enemy_level2 = pygame.image.load("assets/level2alien.png")
+places_level2 = pygame.image.load("assets/level2place.png")
+
+
+#LEVEL 3
+enemy_levell3 = pygame.image.load("assets/ufolevel1.png")
+enemy_level3 = pygame.image.load("assets/ufolevel.png")
+places_level3 = pygame.image.load("assets/placeslevel3.png")
+
+#LEVEL 4
+enemy_levell4 = pygame.image.load("assets/ufolevel33.png")
+enemy_level4 = pygame.image.load("assets/ufolevel3.png")
+places_level4 = pygame.image.load("assets/placeslevel4.png")
+
+umulit = button.Button(500, 570, success, 0.8)
+umulit_mike = button.Button(500, 570, success_mike, 0.8)
+
+# DISPLAY 
+def Displaymike(x,y):
+    screen.blit(player_mike, (x,y))
+# ENEMY
+def Enemy(x,y):
+    screen.blit(enemy_elevenn, (x,y))
+def Enemies(x,y):
+    screen.blit(enemy_eleven, (x,y))
+def Enemieslevel(x,y):
+    screen.blit(enemy_level, (x,y))
+def Enemieslevel2(x,y):
+    screen.blit(enemy_level2, (x,y))
+def Enemieslevell(x,y):
+    screen.blit(enemy_levell3, (x,y))
+def Enemieslevel3(x,y):
+    screen.blit(enemy_level3, (x,y))
+def Enemieslevelll4(x,y):
+    screen.blit(enemy_levell4, (x,y))
+def Enemieslevel4(x,y):
+    screen.blit(enemy_level4, (x,y))
+
+    
+# BULLETS
+def fire_Bullets(x, y):
+    global bullets_state
+    bullets_state = "fire"
+    screen.blit(bullets_eleven, (x + 16,y + 10))
+
+# BULLETS
+def fire_Bulletss(x, y):
+    global bullets_statemike
+    bullets_statemike = "fire"
+    screen.blit(bullets_mike, (x + 16,y + 10))
+
+
+# SCORE BOARD
+def show_score(x,y):
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+    score_value = 0
+    score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+    screen.blit(score, (x,y))
+
+# GAME OVER
+def gameover():
+    over_text = font.render("GAME OVER", True, (255,255,255))
+    screen.blit(over_text, (200,500))
+
+# LEVEL 1
+def Mplay():
+
+    
+    # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 40
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 40
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 40
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 40
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # EIGHT ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
+    # NINE ENEMIES
+    enemies9Y = random.randint(50,150)
+    enemies9_X = random.randint(0,736)
+    enemies9X_changed = 20
+    enemies9Y_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 40
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level, (0,0))
+        draw_text("LEVEL1", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit_mike.draw(screen):
+            if click:
+                MMplaylevel2() 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 20
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -20
+            enemiesssssY += enemiesssssY_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 1:
+            enemies7X_changed = 20
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -20
+            enemies7Y += enemies7Y_changed
+        
+        # EIGHT ENEMIES MOVEMENT
+        
+        enemies8_X += enemies8X_changed
+
+        if enemies8_X <= 1:
+            enemies8X_changed = 20
+            enemies8Y += enemies8Y_changed
+        elif enemies8_X >= 736:
+            enemies8X_changed = -20
+            enemies8Y += enemies8Y_changed
+        
+        # EIGHT ENEMIES MOVEMENT
+        
+        enemies9_X += enemies9X_changed
+
+        if enemies9_X <= 1:
+            enemies9X_changed = 20
+            enemies9Y += enemies9Y_changed
+        elif enemies9_X >= 736:
+            enemies9X_changed = -20
+            enemies9Y += enemies9Y_changed
+        
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bulletss(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
+
+        # EIGHT ENEMIES
+        fivecollision = fourCollision(enemies8_X,enemies8Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies8_X,enemies8Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies8Y = random.randint(50,150)
+            enemies8_X = random.randint(0,735)
+        
+        # NINE ENEMIES
+        fivecollision = fourCollision(enemies9_X,enemies9Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies9_X,enemies9Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies9Y = random.randint(50,150)
+            enemies9_X = random.randint(0,735)
+
+
+        Enemies(enemies9_X, enemies9Y)
+        Enemies(enemies8_X, enemies8Y)   
+        Enemies(enemies7_X, enemies7Y)
+        Enemies(enemiesssss_X, enemiesssssY)
+        Enemy(enemiessss_X, enemiessssY)
+        Enemy(enemiesss_X, enemiesssY)
+        Enemy(enemiess_X, enemiessY)
+        Enemy(enemies_X, enemiesY)
+        Enemy(enemy_X, enemyY)
+        Displaymike(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
+
+#LEVEL 2 PLACE
+
+def MMplaylevel2():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_review2, (0, 170))
+        draw_text("PLACE REVIEW FOR LEVEL 2", font, (255, 255, 255), screen, 20, 20)
+
+        if p_mike.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                MMplay()
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+def MMplay():
+    # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 10
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 10
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 10
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 10
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # SEVEN ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 10
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level2, (0,0))
+        draw_text("LEVEL2", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit_mike.draw(screen):
+            if click:
+                MMplaylevel3() 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 25
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -25
+            enemiesssssY += enemiesssssY_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 1:
+            enemies7X_changed = 25
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -25
+            enemies7Y += enemies7Y_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies8_X += enemies8X_changed
+
+        if enemies8_X <= 1:
+            enemies8X_changed = 25
+            enemies8Y += enemies8Y_changed
+        elif enemies8_X >= 736:
+            enemies8X_changed = -25
+            enemies8Y += enemies8Y_changed
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bulletss(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
+
+        # EIGHT ENEMIES
+        fivecollision = fourCollision(enemies8_X,enemies8Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies8_X,enemies8Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies8Y = random.randint(50,150)
+            enemies8_X = random.randint(0,735)
+
+        
+        Enemieslevel(enemies8_X, enemies8Y)
+        Enemieslevel(enemies7_X, enemies7Y)
+        Enemieslevel(enemiesssss_X, enemiesssssY)
+        Enemieslevel2(enemiessss_X, enemiessssY)
+        Enemieslevel2(enemiesss_X, enemiesssY)
+        Enemieslevel2(enemiess_X, enemiessY)
+        Enemieslevel2(enemies_X, enemiesY)
+        Enemieslevel2(enemy_X, enemyY)
+        Displaymike(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
+
+#LEVEL 3 PLACE
+
+def MMplaylevel3():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_review3, (0, 170))
+        draw_text("PLACE REVIEW FOR LEVEL 3", font, (255, 255, 255), screen, 20, 20)
+
+        if p_mike.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                MMMplay()
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+def MMMplay():
+     # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 10
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 10
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 10
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 10
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # SEVEN ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 10
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level3, (0,0))
+        draw_text("LEVEL3", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit_mike.draw(screen):
+            if click:
+                MMplaylevel4() 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 30
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -30
+            enemiesssssY += enemiesssssY_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 1:
+            enemies7X_changed = 30
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -30
+            enemies7Y += enemies7Y_changed
+        
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bulletss(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
+
+
+        
+        
+        Enemieslevell(enemies7_X, enemies7Y)
+        Enemieslevell(enemiesssss_X, enemiesssssY)
+        Enemieslevel3(enemiessss_X, enemiessssY)
+        Enemieslevel3(enemiesss_X, enemiesssY)
+        Enemieslevel3(enemiess_X, enemiessY)
+        Enemieslevel3(enemies_X, enemiesY)
+        Enemieslevel3(enemy_X, enemyY)
+        Displaymike(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
+#LEVEL 4 PLACE
+
+def MMplaylevel4():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_review4, (0, 170))
+        draw_text("PLACE REVIEW FOR LEVEL 4", font, (255, 255, 255), screen, 20, 20)
+
+        if p_mike.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                MMMMplay()
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+def MMMMplay():
+     # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 10
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 10
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 10
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 10
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 10
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level4, (0,0))
+        draw_text("LEVEL4", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit_mike.draw(screen):
+            if click:
+                pass 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 40
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -40
+            enemiesssssY += enemiesssssY_changed
+        
+        
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bulletss(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+
+        
+        
+        Enemieslevelll4(enemiesssss_X, enemiesssssY)
+        Enemieslevel4(enemiessss_X, enemiessssY)
+        Enemieslevel4(enemiesss_X, enemiesssY)
+        Enemieslevel4(enemiess_X, enemiessY)
+        Enemieslevel4(enemies_X, enemiesY)
+        Enemieslevel4(enemy_X, enemyY)
+        Displaymike(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
+
+# LUCAS PERSPECTIVE SCREEN WHILE PLAYING 
+# LEVEL NUMBER 1
+player_lucas = pygame.image.load('assets/lucasspace.png')
+enemy_eleven = pygame.image.load('assets/alien.png')
+enemy_elevenn = pygame.image.load('assets/alien2.png')
+bullets_eleven = pygame.image.load('assets/bullet.png')
+bullets_mike = pygame.image.load('assets/bulletmike.png')
+bullets_lucas = pygame.image.load('assets/bulletlucas.png')
+places_level = pygame.image.load("assets/level1place.png")
+success = pygame.image.load("assets/elevenbutton.png")
+success_mike = pygame.image.load("assets/mikebutton.png")
+success_lucas = pygame.image.load("assets/lucasbutton.png")
+
+#LEVEL 2
+enemy_level = pygame.image.load("assets/level2alien2.png")
+enemy_level2 = pygame.image.load("assets/level2alien.png")
+places_level2 = pygame.image.load("assets/level2place.png")
+
+
+#LEVEL 3
+enemy_levell3 = pygame.image.load("assets/ufolevel1.png")
+enemy_level3 = pygame.image.load("assets/ufolevel.png")
+places_level3 = pygame.image.load("assets/placeslevel3.png")
+
+#LEVEL 4
+enemy_levell4 = pygame.image.load("assets/ufolevel33.png")
+enemy_level4 = pygame.image.load("assets/ufolevel3.png")
+places_level4 = pygame.image.load("assets/placeslevel4.png")
+
+umulit = button.Button(500, 570, success, 0.8)
+umulit_mike = button.Button(500, 570, success_mike, 0.8)
+umulit_lucas = button.Button(500, 570, success_lucas, 0.8)
+# DISPLAY 
+def Displaylucas(x,y):
+    screen.blit(player_lucas, (x,y))
+# ENEMY
+def Enemy(x,y):
+    screen.blit(enemy_elevenn, (x,y))
+def Enemies(x,y):
+    screen.blit(enemy_eleven, (x,y))
+def Enemieslevel(x,y):
+    screen.blit(enemy_level, (x,y))
+def Enemieslevel2(x,y):
+    screen.blit(enemy_level2, (x,y))
+def Enemieslevell(x,y):
+    screen.blit(enemy_levell3, (x,y))
+def Enemieslevel3(x,y):
+    screen.blit(enemy_level3, (x,y))
+def Enemieslevelll4(x,y):
+    screen.blit(enemy_levell4, (x,y))
+def Enemieslevel4(x,y):
+    screen.blit(enemy_level4, (x,y))
+
+    
+# BULLETS
+def fire_Bullets(x, y):
+    global bullets_state
+    bullets_state = "fire"
+    screen.blit(bullets_eleven, (x + 16,y + 10))
+
+# BULLETS
+def fire_Bulletss(x, y):
+    global bullets_statemike
+    bullets_statemike = "fire"
+    screen.blit(bullets_mike, (x + 16,y + 10))
+
+# BULLETS
+def fire_Bulletsss(x, y):
+    global bullets_statelucas
+    bullets_statelucas = "fire"
+    screen.blit(bullets_lucas, (x + 16,y + 10))
+
+
+# SCORE BOARD
+def show_score(x,y):
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+    score_value = 0
+    score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+    screen.blit(score, (x,y))
+
+# GAME OVER
+def gameover():
+    over_text = font.render("GAME OVER", True, (255,255,255))
+    screen.blit(over_text, (200,500))
+
+# LEVEL 1
+def Lplay():
+
+    
+    # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 40
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 40
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 40
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 40
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # EIGHT ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
+    # NINE ENEMIES
+    enemies9Y = random.randint(50,150)
+    enemies9_X = random.randint(0,736)
+    enemies9X_changed = 20
+    enemies9Y_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 40
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level, (0,0))
+        draw_text("LEVEL1", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit_lucas.draw(screen):
+            if click:
+                LLplaylevel2() 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 20
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -20
+            enemiesssssY += enemiesssssY_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 1:
+            enemies7X_changed = 20
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -20
+            enemies7Y += enemies7Y_changed
+        
+        # EIGHT ENEMIES MOVEMENT
+        
+        enemies8_X += enemies8X_changed
+
+        if enemies8_X <= 1:
+            enemies8X_changed = 20
+            enemies8Y += enemies8Y_changed
+        elif enemies8_X >= 736:
+            enemies8X_changed = -20
+            enemies8Y += enemies8Y_changed
+        
+        # EIGHT ENEMIES MOVEMENT
+        
+        enemies9_X += enemies9X_changed
+
+        if enemies9_X <= 1:
+            enemies9X_changed = 20
+            enemies9Y += enemies9Y_changed
+        elif enemies9_X >= 736:
+            enemies9X_changed = -20
+            enemies9Y += enemies9Y_changed
+        
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bulletsss(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
+
+        # EIGHT ENEMIES
+        fivecollision = fourCollision(enemies8_X,enemies8Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies8_X,enemies8Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies8Y = random.randint(50,150)
+            enemies8_X = random.randint(0,735)
+        
+        # NINE ENEMIES
+        fivecollision = fourCollision(enemies9_X,enemies9Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies9_X,enemies9Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies9Y = random.randint(50,150)
+            enemies9_X = random.randint(0,735)
+
+
+        Enemies(enemies9_X, enemies9Y)
+        Enemies(enemies8_X, enemies8Y)   
+        Enemies(enemies7_X, enemies7Y)
+        Enemies(enemiesssss_X, enemiesssssY)
+        Enemy(enemiessss_X, enemiessssY)
+        Enemy(enemiesss_X, enemiesssY)
+        Enemy(enemiess_X, enemiessY)
+        Enemy(enemies_X, enemiesY)
+        Enemy(enemy_X, enemyY)
+        Displaylucas(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
+
+#LEVEL 2 PLACE
+
+def LLplaylevel2():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_review2, (0, 170))
+        draw_text("PLACE REVIEW FOR LEVEL 2", font, (255, 255, 255), screen, 20, 20)
+
+        if p_lucas.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                LLplay()
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+def LLplay():
+    # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 10
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 10
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 10
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 10
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # SEVEN ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 10
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level2, (0,0))
+        draw_text("LEVEL2", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit_lucas.draw(screen):
+            if click:
+                LLplaylevel3() 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 25
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -25
+            enemiesssssY += enemiesssssY_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 1:
+            enemies7X_changed = 25
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -25
+            enemies7Y += enemies7Y_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies8_X += enemies8X_changed
+
+        if enemies8_X <= 1:
+            enemies8X_changed = 25
+            enemies8Y += enemies8Y_changed
+        elif enemies8_X >= 736:
+            enemies8X_changed = -25
+            enemies8Y += enemies8Y_changed
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bulletsss(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
+
+        # EIGHT ENEMIES
+        fivecollision = fourCollision(enemies8_X,enemies8Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies8_X,enemies8Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies8Y = random.randint(50,150)
+            enemies8_X = random.randint(0,735)
+
+        
+        Enemieslevel(enemies8_X, enemies8Y)
+        Enemieslevel(enemies7_X, enemies7Y)
+        Enemieslevel(enemiesssss_X, enemiesssssY)
+        Enemieslevel2(enemiessss_X, enemiessssY)
+        Enemieslevel2(enemiesss_X, enemiesssY)
+        Enemieslevel2(enemiess_X, enemiessY)
+        Enemieslevel2(enemies_X, enemiesY)
+        Enemieslevel2(enemy_X, enemyY)
+        Displaylucas(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
+
+#LEVEL 3 PLACE
+
+def LLplaylevel3():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_review3, (0, 170))
+        draw_text("PLACE REVIEW FOR LEVEL 3", font, (255, 255, 255), screen, 20, 20)
+
+        if p_lucas.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                LLLplay()
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+def LLLplay():
+     # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 10
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 10
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 10
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 10
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # SEVEN ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 10
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level3, (0,0))
+        draw_text("LEVEL3", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit_lucas.draw(screen):
+            if click:
+                LLplaylevel4() 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 30
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -30
+            enemiesssssY += enemiesssssY_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 1:
+            enemies7X_changed = 30
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -30
+            enemies7Y += enemies7Y_changed
+        
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bulletsss(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
+
+
+        
+        
+        Enemieslevell(enemies7_X, enemies7Y)
+        Enemieslevell(enemiesssss_X, enemiesssssY)
+        Enemieslevel3(enemiessss_X, enemiessssY)
+        Enemieslevel3(enemiesss_X, enemiesssY)
+        Enemieslevel3(enemiess_X, enemiessY)
+        Enemieslevel3(enemies_X, enemiesY)
+        Enemieslevel3(enemy_X, enemyY)
+        Displaylucas(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
+#LEVEL 4 PLACE
+
+def LLplaylevel4():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_review4, (0, 170))
+        draw_text("PLACE REVIEW FOR LEVEL 4", font, (255, 255, 255), screen, 20, 20)
+
+        if p_lucas.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                LLLLplay()
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+def LLLLplay():
+    # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 10
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 10
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 10
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 10
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 10
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level4, (0,0))
+        draw_text("LEVEL4", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit_lucas.draw(screen):
+            if click:
+                pass 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 40
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -40
+            enemiesssssY += enemiesssssY_changed
+        
+        
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bulletsss(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+
+        
+        
+        Enemieslevelll4(enemiesssss_X, enemiesssssY)
+        Enemieslevel4(enemiessss_X, enemiessssY)
+        Enemieslevel4(enemiesss_X, enemiesssY)
+        Enemieslevel4(enemiess_X, enemiessY)
+        Enemieslevel4(enemies_X, enemiesY)
+        Enemieslevel4(enemy_X, enemyY)
+        Displaylucas(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
+
+# DUSTIN PERSPECTIVE SCREEN WHILE PLAYING 
+
+# LEVEL NUMBER 1
+player_dustin = pygame.image.load('assets/dustinspace.png')
+enemy_eleven = pygame.image.load('assets/alien.png')
+enemy_elevenn = pygame.image.load('assets/alien2.png')
+bullets_eleven = pygame.image.load('assets/bullet.png')
+bullets_mike = pygame.image.load('assets/bulletmike.png')
+bullets_lucas = pygame.image.load('assets/bulletlucas.png')
+bullets_dustin = pygame.image.load('assets/bulletdustin.png')
+places_level = pygame.image.load("assets/level1place.png")
+success = pygame.image.load("assets/elevenbutton.png")
+success_mike = pygame.image.load("assets/mikebutton.png")
+success_lucas = pygame.image.load("assets/lucasbutton.png")
+success_dustin = pygame.image.load("assets/dustinbutton.png")
+
+#LEVEL 2
+enemy_level = pygame.image.load("assets/level2alien2.png")
+enemy_level2 = pygame.image.load("assets/level2alien.png")
+places_level2 = pygame.image.load("assets/level2place.png")
+
+
+#LEVEL 3
+enemy_levell3 = pygame.image.load("assets/ufolevel1.png")
+enemy_level3 = pygame.image.load("assets/ufolevel.png")
+places_level3 = pygame.image.load("assets/placeslevel3.png")
+
+#LEVEL 4
+enemy_levell4 = pygame.image.load("assets/ufolevel33.png")
+enemy_level4 = pygame.image.load("assets/ufolevel3.png")
+places_level4 = pygame.image.load("assets/placeslevel4.png")
+
+umulit = button.Button(500, 570, success, 0.8)
+umulit_mike = button.Button(500, 570, success_mike, 0.8)
+umulit_lucas = button.Button(500, 570, success_lucas, 0.8)
+umulit_dustin = button.Button(500, 570, success_dustin, 0.8)
+# DISPLAY 
+def Displaydustin(x,y):
+    screen.blit(player_dustin, (x,y))
+# ENEMY
+def Enemy(x,y):
+    screen.blit(enemy_elevenn, (x,y))
+def Enemies(x,y):
+    screen.blit(enemy_eleven, (x,y))
+def Enemieslevel(x,y):
+    screen.blit(enemy_level, (x,y))
+def Enemieslevel2(x,y):
+    screen.blit(enemy_level2, (x,y))
+def Enemieslevell(x,y):
+    screen.blit(enemy_levell3, (x,y))
+def Enemieslevel3(x,y):
+    screen.blit(enemy_level3, (x,y))
+def Enemieslevelll4(x,y):
+    screen.blit(enemy_levell4, (x,y))
+def Enemieslevel4(x,y):
+    screen.blit(enemy_level4, (x,y))
+
+    
+# BULLETS
+def fire_Bullets(x, y):
+    global bullets_state
+    bullets_state = "fire"
+    screen.blit(bullets_eleven, (x + 16,y + 10))
+
+# BULLETS
+def fire_Bulletss(x, y):
+    global bullets_statemike
+    bullets_statemike = "fire"
+    screen.blit(bullets_mike, (x + 16,y + 10))
+
+# BULLETS
+def fire_Bulletsss(x, y):
+    global bullets_statelucas
+    bullets_statelucas = "fire"
+    screen.blit(bullets_lucas, (x + 16,y + 10))
+
+# BULLETS
+def fire_Bulletssss(x, y):
+    global bullets_statedustin
+    bullets_statedustin = "fire"
+    screen.blit(bullets_dustin, (x + 16,y + 10))
+
+
+# SCORE BOARD
+def show_score(x,y):
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+    score_value = 0
+    score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+    screen.blit(score, (x,y))
+
+# GAME OVER
+def gameover():
+    over_text = font.render("GAME OVER", True, (255,255,255))
+    screen.blit(over_text, (200,500))
+
+# LEVEL 1
+def Dplay():
+
+    
+    # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 40
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 40
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 40
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 40
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # EIGHT ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
+    # NINE ENEMIES
+    enemies9Y = random.randint(50,150)
+    enemies9_X = random.randint(0,736)
+    enemies9X_changed = 20
+    enemies9Y_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 40
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level, (0,0))
+        draw_text("LEVEL1", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit_dustin.draw(screen):
+            if click:
+                DDplaylevel2() 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 20
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -20
+            enemiesssssY += enemiesssssY_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 1:
+            enemies7X_changed = 20
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -20
+            enemies7Y += enemies7Y_changed
+        
+        # EIGHT ENEMIES MOVEMENT
+        
+        enemies8_X += enemies8X_changed
+
+        if enemies8_X <= 1:
+            enemies8X_changed = 20
+            enemies8Y += enemies8Y_changed
+        elif enemies8_X >= 736:
+            enemies8X_changed = -20
+            enemies8Y += enemies8Y_changed
+        
+        # EIGHT ENEMIES MOVEMENT
+        
+        enemies9_X += enemies9X_changed
+
+        if enemies9_X <= 1:
+            enemies9X_changed = 20
+            enemies9Y += enemies9Y_changed
+        elif enemies9_X >= 736:
+            enemies9X_changed = -20
+            enemies9Y += enemies9Y_changed
+        
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bulletssss(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
+
+        # EIGHT ENEMIES
+        fivecollision = fourCollision(enemies8_X,enemies8Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies8_X,enemies8Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies8Y = random.randint(50,150)
+            enemies8_X = random.randint(0,735)
+        
+        # NINE ENEMIES
+        fivecollision = fourCollision(enemies9_X,enemies9Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies9_X,enemies9Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies9Y = random.randint(50,150)
+            enemies9_X = random.randint(0,735)
+
+
+        Enemies(enemies9_X, enemies9Y)
+        Enemies(enemies8_X, enemies8Y)   
+        Enemies(enemies7_X, enemies7Y)
+        Enemies(enemiesssss_X, enemiesssssY)
+        Enemy(enemiessss_X, enemiessssY)
+        Enemy(enemiesss_X, enemiesssY)
+        Enemy(enemiess_X, enemiessY)
+        Enemy(enemies_X, enemiesY)
+        Enemy(enemy_X, enemyY)
+        Displaydustin(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
+
+#LEVEL 2 PLACE
+
+def DDplaylevel2():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_review2, (0, 170))
+        draw_text("PLACE REVIEW FOR LEVEL 2", font, (255, 255, 255), screen, 20, 20)
+
+        if p_dustin.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                DDplay()
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+def DDplay():
+    # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 10
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 10
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 10
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 10
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # SEVEN ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 10
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level2, (0,0))
+        draw_text("LEVEL2", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit_dustin.draw(screen):
+            if click:
+                DDplaylevel3() 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 25
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -25
+            enemiesssssY += enemiesssssY_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 1:
+            enemies7X_changed = 25
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -25
+            enemies7Y += enemies7Y_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies8_X += enemies8X_changed
+
+        if enemies8_X <= 1:
+            enemies8X_changed = 25
+            enemies8Y += enemies8Y_changed
+        elif enemies8_X >= 736:
+            enemies8X_changed = -25
+            enemies8Y += enemies8Y_changed
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bulletssss(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
+
+        # EIGHT ENEMIES
+        fivecollision = fourCollision(enemies8_X,enemies8Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies8_X,enemies8Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies8Y = random.randint(50,150)
+            enemies8_X = random.randint(0,735)
+
+        
+        Enemieslevel(enemies8_X, enemies8Y)
+        Enemieslevel(enemies7_X, enemies7Y)
+        Enemieslevel(enemiesssss_X, enemiesssssY)
+        Enemieslevel2(enemiessss_X, enemiessssY)
+        Enemieslevel2(enemiesss_X, enemiesssY)
+        Enemieslevel2(enemiess_X, enemiessY)
+        Enemieslevel2(enemies_X, enemiesY)
+        Enemieslevel2(enemy_X, enemyY)
+        Displaydustin(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
+
+#LEVEL 3 PLACE
+
+def DDplaylevel3():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_review3, (0, 170))
+        draw_text("PLACE REVIEW FOR LEVEL 3", font, (255, 255, 255), screen, 20, 20)
+
+        if p_dustin.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                DDDplay()
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+def DDDplay():
+     # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 10
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 10
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 10
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 10
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # SEVEN ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 10
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level3, (0,0))
+        draw_text("LEVEL3", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit_dustin.draw(screen):
+            if click:
+                DDplaylevel4() 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 30
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -30
+            enemiesssssY += enemiesssssY_changed
+        
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 1:
+            enemies7X_changed = 30
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -30
+            enemies7Y += enemies7Y_changed
+        
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bulletssss(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
+
+
+        
+        
+        Enemieslevell(enemies7_X, enemies7Y)
+        Enemieslevell(enemiesssss_X, enemiesssssY)
+        Enemieslevel3(enemiessss_X, enemiessssY)
+        Enemieslevel3(enemiesss_X, enemiesssY)
+        Enemieslevel3(enemiess_X, enemiessY)
+        Enemieslevel3(enemies_X, enemiesY)
+        Enemieslevel3(enemy_X, enemyY)
+        Displaydustin(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
+#LEVEL 4 PLACE
+
+def DDplaylevel4():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(place_review4, (0, 170))
+        draw_text("PLACE REVIEW FOR LEVEL 4", font, (255, 255, 255), screen, 20, 20)
+
+        if p_dustin.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                DDDDplay()
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            if event.type == KEYDOWN:
+                if event.key == K_ESCAPE:
+                   running = False
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
+
+def DDDDplay():
+    # EXPLOSION EFFECT
+    explosive  = pygame.image.load('assets/explode.png')
+
+    # BULLET MOVEMENT
+    bullets_eleven = pygame.image.load("assets/bullet.png")
+    bullet_X = 0
+    bulletY = 600
+    bulletX_changed = 0
+    bulletY_changed = 20
+    bullets_state = "fire"
+    
+    # SCORE
+    score_value = 0 
+    textX = 10
+    textY = 10
+    
+    # SECOND ENEMIES
+    enemiesY = random.randint(50,150)
+    enemies_X = random.randint(0,736)
+    enemiesX_changed = 3
+    enemiesY_changed = 10
+
+    # THIRD ENEMIES
+    enemiessY = random.randint(50,150)
+    enemiess_X = random.randint(0,736)
+    enemiessX_changed = 3
+    enemiessY_changed = 10
+
+    # FOURT ENEMIES
+    enemiesssY = random.randint(50,150)
+    enemiesss_X = random.randint(0,736)
+    enemiesssX_changed = 3
+    enemiesssY_changed = 10
+
+    # FIVE ENEMIES
+    enemiessssY = random.randint(50,150)
+    enemiessss_X = random.randint(0,736)
+    enemiessssX_changed = 3
+    enemiessssY_changed = 10
+
+    # SIX ENEMIES
+    enemiesssssY = random.randint(50,150)
+    enemiesssss_X = random.randint(0,736)
+    enemiesssssX_changed = 20
+    enemiesssssY_changed = 0
+
+    # ENEMY MOVEMENT
+    enemyY = random.randint(50,150)
+    enemy_X = random.randint(0,736)
+    enemyX_changed = 3
+    enemyY_changed = 10
+
+    #PLAYER MOVEMENT
+    playerY = 600
+    playerX_changed = 0
+    player_X = 370  
+
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(places_level4, (0,0))
+        draw_text("LEVEL4", font, (255, 255, 255), screen, 20, 20)
+
+    
+        if umulit_dustin.draw(screen):
+            if click:
+                pass 
+
+        #GAME LOOP   
+        for event in pygame.event.get():
+        
+            if event.type == QUIT:
+                running = False
+                pygame.quit()
+                sys.exit()    
+            if event.type == KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    playerX_changed = -5
+                if event.key == pygame.K_RIGHT:
+                    playerX_changed = 5
+            if event.type == MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    click = True
+                    
+
+            if event.type == pygame.KEYUP:
+                if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                    playerX_changed = 0
+
+            
+        # BOUNDARIES OF PLAYER
+        player_X += playerX_changed
+
+        if player_X <=0:
+            player_X = 0
+        elif player_X >= 736:
+            player_X = 736
+        
+        # ENEMY MOVEMENT
+        
+        
+        enemy_X += enemyX_changed
+        
+        if enemy_X <= 2:
+            enemyX_changed = 5
+            enemyY += enemyY_changed
+        elif enemy_X >= 736:
+            enemyX_changed = -5
+            enemyY += enemyY_changed
+        
+        
+        # SECOND ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+
+        enemies_X += enemiesX_changed
+
+        if enemies_X <=  2:
+            enemiesX_changed = 5
+            enemiesY += enemiesY_changed
+        elif enemies_X >= 736:
+            enemiesX_changed = -5
+            enemiesY += enemiesY_changed
+
+
+        # THIRD ENEMIES MOVEMENT
+
+        # ENEMY MOVEMENT
+        enemiess_X += enemiessX_changed
+
+        if enemiess_X <= 2:
+            enemiessX_changed = 5
+            enemiessY += enemiessY_changed
+        elif enemiess_X >= 736:
+            enemiessX_changed = -5
+            enemiessY += enemiessY_changed
+
+        # FOURT ENEMIES MOVEMENT
+
+        enemiesss_X += enemiesssX_changed
+
+        if enemiesss_X <=  2:
+            enemiesssX_changed = 5
+            enemiesssY += enemiesssY_changed
+        elif enemiesss_X >= 736:
+            enemiesssX_changed = -5
+            enemiessssY += enemiesssY_changed
+
+        # FIVE ENEMIES MOVEMENT
+        
+        enemiessss_X += enemiessssX_changed
+
+        if enemiessss_X <= 2:
+            enemiessssX_changed = 5
+            enemiessssY += enemiessssY_changed
+        elif enemiessss_X >= 736:
+            enemiessssX_changed = -5
+            enemiessssY += enemiessssY_changed
+        
+        # SIX ENEMIES MOVEMENT
+        
+        enemiesssss_X += enemiesssssX_changed
+
+        if enemiesssss_X <= 1:
+            enemiesssssX_changed = 40
+            enemiesssssY += enemiesssssY_changed
+        elif enemiesssss_X >= 736:
+            enemiesssssX_changed = -40
+            enemiesssssY += enemiesssssY_changed
+        
+        
+
+        # BULLET MOVEMENT
+        if bulletY <= 0:
+            bullet_sound = mixer.Sound('sound/laser.wav')
+            bullet_sound.play()    
+            bulletY = 600
+            bullets_state = "fire"
+            bullet_X = player_X
+            
+
+        if bullets_state == "fire":
+            fire_Bulletssss(bullet_X, bulletY)
+            bulletY -= bulletY_changed
+
+        # COLLISION FIRST ENEMY
+        collision = isCollision(enemy_X,enemyY,bullet_X,bulletY)
+        if collision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemy_X,enemyY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemyY = random.randint(50,150)
+            enemy_X = random.randint(0,735)
+            
+
+        # SECOND ENEMIES
+        onecollision = oneCollision(enemies_X,enemiesY,bullet_X,bulletY)
+        if onecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies_X,enemiesY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesY = random.randint(50,150)
+            enemies_X = random.randint(0,735)
+
+        # THIRD ENEMIES
+        twocollision = twoCollision(enemiess_X,enemiessY,bullet_X,bulletY)
+        if twocollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiess_X,enemiessY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessY = random.randint(50,150)
+            enemiess_X = random.randint(0,735)
+        
+        # FOURT ENEMIES
+        threecollision = twoCollision(enemiesss_X,enemiesssY,bullet_X,bulletY)
+        if threecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesss_X,enemiesssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiesssY = random.randint(50,150)
+            enemiesss_X = random.randint(0,735)
+        
+        # FIVE ENEMIES
+        fourtcollision = twoCollision(enemiessss_X,enemiessssY,bullet_X,bulletY)
+        if fourtcollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiessss_X,enemiessssY))
+            bulletY = 480
+            bullets_state = "fire"
+            enemiessssY = random.randint(50,150)
+            enemiessss_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemiesssss_X,enemiesssssY,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemiesssss_X,enemiesssssY))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            print(score_value)
+            enemiesssssY = random.randint(50,150)
+            enemiesssss_X = random.randint(0,735)
+        
+
+        
+        
+        Enemieslevelll4(enemiesssss_X, enemiesssssY)
+        Enemieslevel4(enemiessss_X, enemiessssY)
+        Enemieslevel4(enemiesss_X, enemiesssY)
+        Enemieslevel4(enemiess_X, enemiessY)
+        Enemieslevel4(enemies_X, enemiesY)
+        Enemieslevel4(enemy_X, enemyY)
+        Displaydustin(player_X,playerY)
+        pygame.display.update()
+        mainClock.tick(60)
+
 
 game_menu()
