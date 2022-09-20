@@ -137,8 +137,7 @@ b_eleven = pygame.image.load('assets/elevenlogos.png')
 b_mike = pygame.image.load('assets/mikelogos.png')
 b_lucas = pygame.image.load('assets/lucaslogos.png')
 b_dustin = pygame.image.load('assets/dustinlogos.png')
-b_bselection = pygame.image.load('assets/back.png')
-balik_lobby = pygame.image.load('assets/lobbybutton.png')
+
 
 # FUNCTION IN SELECTION SCREEN
 
@@ -146,7 +145,7 @@ eleven_button = button.Button(1, 310, b_eleven, 0.7)
 mike_button = button.Button(190, 310, b_mike, 0.7)
 lucas_button = button.Button(380, 310, b_lucas, 0.7)
 dustin_button = button.Button(580, 310, b_dustin, 0.7)
-lobby_button = button.Button(270, 570, balik_lobby, 0.8)
+
 
 # IMAGE IN PLACE REVIEW 
 
@@ -159,10 +158,10 @@ D_for = pygame.image.load('assets/dustinbutton.png')
 
 #BUTTON IN PLACE REVIEW
 
-p_eleven = button.Button(270, 530, E_for, 0.8)
-p_mike = button.Button(270, 530, M_for, 0.8)
-p_lucas = button.Button(270, 530, L_for, 0.8)
-p_dustin = button.Button(270, 530, D_for, 0.8)
+p_eleven = button.Button(270, 570, E_for, 0.8)
+p_mike = button.Button(270, 570, M_for, 0.8)
+p_lucas = button.Button(270, 570, L_for, 0.8)
+p_dustin = button.Button(270, 570, D_for, 0.8)
 
 
 #SET UP OF EVERY SCREEN IN THE GAME
@@ -224,7 +223,7 @@ def game_selection():
         screen.blit(l_mike,(150, 340))
         screen.blit(l_lucas,(340, 340))
         screen.blit(l_dustin,(540, 340))
-        draw_text("Game Selection", font, (255, 255, 255), screen, 20, 20)
+        draw_text("Game Selection", font, (255, 255, 255), screen, 20, 20)   
         
         if eleven_button.draw(screen):
             if click:
@@ -249,12 +248,6 @@ def game_selection():
                 dbutton_sound = mixer.Sound('sound/buttoneffect.wav')
                 dbutton_sound.play()
                 Dplacereview()
-
-        if lobby_button.draw(screen):
-            if click:
-                dbutton_sound = mixer.Sound('sound/buttoneffect.wav')
-                dbutton_sound.play()
-                game_menu()   
 
         #GAME LOOP
         for event in pygame.event.get():
@@ -653,6 +646,14 @@ def Eplacereview():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 Eplay()
+
+        if umuulit.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                game_selection()
+
+
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -684,6 +685,12 @@ def Mplacereview():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 Mplay()
+        
+        if umuulit_mike.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                game_selection()
  
         #GAME LOOP
         for event in pygame.event.get():
@@ -716,6 +723,12 @@ def Lplacereview():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 Lplay()
+        
+        if umuulit_lucas.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                game_selection()
  
         #GAME LOOP
         for event in pygame.event.get():
@@ -748,6 +761,11 @@ def Dplacereview():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 Dplay()
+        if umuulit_dustin.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                game_selection()
  
         #GAME LOOP
         for event in pygame.event.get():
@@ -773,6 +791,7 @@ enemy_elevenn = pygame.image.load('assets/alien2.png')
 bullets_eleven = pygame.image.load('assets/bullet.png')
 places_level = pygame.image.load("assets/level1place.png")
 success = pygame.image.load("assets/elevenbutton.png")
+success_eleven = pygame.image.load("assets/balikbuttoneleven.png")
 
 #LEVEL 2
 enemy_level = pygame.image.load("assets/level2alien2.png")
@@ -791,6 +810,8 @@ enemy_level4 = pygame.image.load("assets/ufolevel3.png")
 places_level4 = pygame.image.load("assets/placeslevel4.png")
 
 umulit = button.Button(500, 570, success, 0.8)
+umuulit = button.Button(20, 570, success_eleven, 0.8)
+
 # DISPLAY 
 def Display(x,y):
     screen.blit(player_eleven, (x,y))
@@ -986,7 +1007,13 @@ def Eplay():
     
         if umulit.draw(screen):
             if click:
-                EEplaylevel2() 
+                EEplaylevel2()
+
+        if umuulit.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                Eplacereview() 
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -1275,6 +1302,13 @@ def EEplaylevel2():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 EEplay()
+        
+        if umuulit.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                Eplay()
+
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -1370,7 +1404,13 @@ def EEplay():
     
         if umulit.draw(screen):
             if click:
-                EEplaylevel3() 
+                EEplaylevel3()
+
+        if umuulit.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                EEplaylevel2() 
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -1633,6 +1673,12 @@ def EEplaylevel3():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 EEEplay()
+        
+        if umuulit.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                EEplay()
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -1728,7 +1774,13 @@ def EEEplay():
     
         if umulit.draw(screen):
             if click:
-                EEplaylevel4() 
+                EEplaylevel4()
+
+        if umuulit.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                EEplaylevel3() 
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -1968,6 +2020,13 @@ def EEplaylevel4():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 EEEEplay()
+        
+        if umuulit.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                EEEplay()
+
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -2051,7 +2110,13 @@ def EEEEplay():
     
         if umulit.draw(screen):
             if click:
-                pass 
+                pass
+        
+        if umuulit.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                EEplaylevel4()
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -2263,6 +2328,7 @@ bullets_mike = pygame.image.load('assets/bulletmike.png')
 places_level = pygame.image.load("assets/level1place.png")
 success = pygame.image.load("assets/elevenbutton.png")
 success_mike = pygame.image.load("assets/mikebutton.png")
+success_mikee = pygame.image.load("assets/balikbuttonmike.png")
 place_review2 = pygame.image.load('assets/placereviewlevel2.png')
 place_review3 = pygame.image.load('assets/placereviewlevel3.png')
 place_review4 = pygame.image.load('assets/placereviewlevel4.png')
@@ -2285,6 +2351,7 @@ places_level4 = pygame.image.load("assets/placeslevel4.png")
 
 umulit = button.Button(500, 570, success, 0.8)
 umulit_mike = button.Button(500, 570, success_mike, 0.8)
+umuulit_mike = button.Button(20, 570, success_mikee, 0.8)
 
 # DISPLAY 
 def Displaymike(x,y):
@@ -2421,7 +2488,13 @@ def Mplay():
     
         if umulit_mike.draw(screen):
             if click:
-                MMplaylevel2() 
+                MMplaylevel2()
+
+        if umuulit_mike.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                Mplacereview() 
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -2710,6 +2783,13 @@ def MMplaylevel2():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 MMplay()
+        
+        if umuulit_mike.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                Mplay()
+
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -2805,7 +2885,13 @@ def MMplay():
     
         if umulit_mike.draw(screen):
             if click:
-                MMplaylevel3() 
+                MMplaylevel3()
+
+        if umuulit_mike.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                MMplaylevel2() 
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -3068,6 +3154,12 @@ def MMplaylevel3():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 MMMplay()
+        
+        if umuulit_mike.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                MMplay()
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -3163,7 +3255,13 @@ def MMMplay():
     
         if umulit_mike.draw(screen):
             if click:
-                MMplaylevel4() 
+                MMplaylevel4()
+
+        if umuulit_mike.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                MMplaylevel3() 
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -3403,6 +3501,12 @@ def MMplaylevel4():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 MMMMplay()
+        
+        if umuulit_mike.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                MMMplay()
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -3486,7 +3590,13 @@ def MMMMplay():
     
         if umulit_mike.draw(screen):
             if click:
-                pass 
+                pass
+
+        if umuulit_mike.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                MMplaylevel4() 
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -3700,6 +3810,7 @@ places_level = pygame.image.load("assets/level1place.png")
 success = pygame.image.load("assets/elevenbutton.png")
 success_mike = pygame.image.load("assets/mikebutton.png")
 success_lucas = pygame.image.load("assets/lucasbutton.png")
+success_lucass = pygame.image.load("assets/balikbuttonlucas.png")
 
 #LEVEL 2
 enemy_level = pygame.image.load("assets/level2alien2.png")
@@ -3720,6 +3831,8 @@ places_level4 = pygame.image.load("assets/placeslevel4.png")
 umulit = button.Button(500, 570, success, 0.8)
 umulit_mike = button.Button(500, 570, success_mike, 0.8)
 umulit_lucas = button.Button(500, 570, success_lucas, 0.8)
+umuulit_lucas = button.Button(20, 570, success_lucass, 0.8)
+
 # DISPLAY 
 def Displaylucas(x,y):
     screen.blit(player_lucas, (x,y))
@@ -3862,6 +3975,12 @@ def Lplay():
         if umulit_lucas.draw(screen):
             if click:
                 LLplaylevel2() 
+        
+        if umuulit_lucas.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                Lplacereview()
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -4150,6 +4269,13 @@ def LLplaylevel2():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 LLplay()
+        
+        if umuulit_lucas.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                Lplay()
+
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -4245,7 +4371,13 @@ def LLplay():
     
         if umulit_lucas.draw(screen):
             if click:
-                LLplaylevel3() 
+                LLplaylevel3()
+
+        if umuulit_lucas.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                LLplaylevel2() 
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -4508,6 +4640,12 @@ def LLplaylevel3():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 LLLplay()
+        
+        if umuulit_lucas.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                LLplay()
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -4603,7 +4741,13 @@ def LLLplay():
     
         if umulit_lucas.draw(screen):
             if click:
-                LLplaylevel4() 
+                LLplaylevel4()
+
+        if umuulit_lucas.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                LLplaylevel3() 
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -4843,6 +4987,13 @@ def LLplaylevel4():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 LLLLplay()
+        
+        if umuulit_lucas.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                LLLplay()
+
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -4926,7 +5077,13 @@ def LLLLplay():
     
         if umulit_lucas.draw(screen):
             if click:
-                pass 
+                pass
+        
+        if umuulit_lucas.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                LLplaylevel4()
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -5143,6 +5300,7 @@ success = pygame.image.load("assets/elevenbutton.png")
 success_mike = pygame.image.load("assets/mikebutton.png")
 success_lucas = pygame.image.load("assets/lucasbutton.png")
 success_dustin = pygame.image.load("assets/dustinbutton.png")
+success_dustinn = pygame.image.load("assets/balikbuttondustin.png")
 
 #LEVEL 2
 enemy_level = pygame.image.load("assets/level2alien2.png")
@@ -5164,6 +5322,8 @@ umulit = button.Button(500, 570, success, 0.8)
 umulit_mike = button.Button(500, 570, success_mike, 0.8)
 umulit_lucas = button.Button(500, 570, success_lucas, 0.8)
 umulit_dustin = button.Button(500, 570, success_dustin, 0.8)
+umuulit_dustin = button.Button(20, 570, success_dustinn, 0.8)
+
 # DISPLAY 
 def Displaydustin(x,y):
     screen.blit(player_dustin, (x,y))
@@ -5312,6 +5472,11 @@ def Dplay():
         if umulit_dustin.draw(screen):
             if click:
                 DDplaylevel2() 
+
+
+        if umuulit_dustin.draw(screen):
+            if click:
+                Dplacereview()
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -5600,6 +5765,13 @@ def DDplaylevel2():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 DDplay()
+        
+        if umuulit_dustin.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                Dplay()
+
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -5696,6 +5868,12 @@ def DDplay():
         if umulit_dustin.draw(screen):
             if click:
                 DDplaylevel3() 
+        
+        if umuulit_dustin.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                DDplaylevel2()
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -5958,6 +6136,13 @@ def DDplaylevel3():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 DDDplay()
+        
+        if umuulit_dustin.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                DDplay()
+
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -6053,7 +6238,13 @@ def DDDplay():
     
         if umulit_dustin.draw(screen):
             if click:
-                DDplaylevel4() 
+                DDplaylevel4()
+        
+        if umuulit_dustin.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                DDplaylevel3()
 
         #GAME LOOP   
         for event in pygame.event.get():
@@ -6293,6 +6484,13 @@ def DDplaylevel4():
                 partone_sound = mixer.Sound('sound/buttoneffect.wav')
                 partone_sound.play()
                 DDDDplay()
+        
+        if umuulit_dustin.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                DDDplay()
+
         #GAME LOOP
         for event in pygame.event.get():
             if event.type == QUIT:
@@ -6377,6 +6575,12 @@ def DDDDplay():
         if umulit_dustin.draw(screen):
             if click:
                 pass 
+        
+        if umuulit_dustin.draw(screen):
+            if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                DDplaylevel4()
 
         #GAME LOOP   
         for event in pygame.event.get():
