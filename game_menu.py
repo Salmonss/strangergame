@@ -840,17 +840,6 @@ def fire_Bullets(x, y):
     bullets_state = "fire"
     screen.blit(bullets_eleven, (x + 16,y + 10))
 
-# SCORE BOARD
-def show_score(x,y):
-    fonts = pygame.font.Font('freesansbold.ttf', 32)
-    score_value = 0
-    score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
-    screen.blit(score, (x,y))
-
-# GAME OVER
-def gameover():
-    over_text = font.render("GAME OVER", True, (255,255,255))
-    screen.blit(over_text, (200,500))
 
 # COLLISION
 def isCollision (enemy_X, enemyY, bullet_X, bulletY):
@@ -924,6 +913,18 @@ def Eplay():
 
     
     # EXPLOSION EFFECT
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
+    textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
+
     explosive  = pygame.image.load('assets/explode.png')
 
     # BULLET MOVEMENT
@@ -934,10 +935,6 @@ def Eplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
-    textY = 10
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -1007,6 +1004,8 @@ def Eplay():
     
         if umulit.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 EEplaylevel2()
 
         if umuulit.draw(screen):
@@ -1229,7 +1228,6 @@ def Eplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
@@ -1242,7 +1240,6 @@ def Eplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies7Y = random.randint(50,150)
             enemies7_X = random.randint(0,735)
 
@@ -1255,7 +1252,6 @@ def Eplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies8Y = random.randint(50,150)
             enemies8_X = random.randint(0,735)
         
@@ -1268,11 +1264,10 @@ def Eplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies9Y = random.randint(50,150)
             enemies9_X = random.randint(0,735)
 
-
+        show_score(textX, textY)
         Enemies(enemies9_X, enemies9Y)
         Enemies(enemies8_X, enemies8Y)   
         Enemies(enemies7_X, enemies7Y)
@@ -1337,10 +1332,17 @@ def EEplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
     textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -1404,6 +1406,8 @@ def EEplay():
     
         if umulit.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 EEplaylevel3()
 
         if umuulit.draw(screen):
@@ -1614,7 +1618,6 @@ def EEplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
@@ -1627,7 +1630,6 @@ def EEplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies7Y = random.randint(50,150)
             enemies7_X = random.randint(0,735)
 
@@ -1640,11 +1642,11 @@ def EEplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies8Y = random.randint(50,150)
             enemies8_X = random.randint(0,735)
 
         
+        show_score(textX, textY)
         Enemieslevel(enemies8_X, enemies8Y)
         Enemieslevel(enemies7_X, enemies7Y)
         Enemieslevel(enemiesssss_X, enemiesssssY)
@@ -1707,10 +1709,17 @@ def EEEplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
     textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -1774,6 +1783,8 @@ def EEEplay():
     
         if umulit.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 EEplaylevel4()
 
         if umuulit.draw(screen):
@@ -1974,7 +1985,6 @@ def EEEplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
@@ -1987,13 +1997,12 @@ def EEEplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies7Y = random.randint(50,150)
             enemies7_X = random.randint(0,735)
 
 
         
-        
+        show_score(textX, textY)
         Enemieslevell(enemies7_X, enemies7Y)
         Enemieslevell(enemiesssss_X, enemiesssssY)
         Enemieslevel3(enemiessss_X, enemiessssY)
@@ -2055,10 +2064,17 @@ def EEEEplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
     textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -2110,7 +2126,9 @@ def EEEEplay():
     
         if umulit.draw(screen):
             if click:
-                pass
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                congrats()
         
         if umuulit.draw(screen):
             if click:
@@ -2300,13 +2318,12 @@ def EEEEplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
 
         
-        
+        show_score(textX, textY)
         Enemieslevelll4(enemiesssss_X, enemiesssssY)
         Enemieslevel4(enemiessss_X, enemiessssY)
         Enemieslevel4(enemiesss_X, enemiesssY)
@@ -2388,17 +2405,6 @@ def fire_Bulletss(x, y):
     screen.blit(bullets_mike, (x + 16,y + 10))
 
 
-# SCORE BOARD
-def show_score(x,y):
-    fonts = pygame.font.Font('freesansbold.ttf', 32)
-    score_value = 0
-    score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
-    screen.blit(score, (x,y))
-
-# GAME OVER
-def gameover():
-    over_text = font.render("GAME OVER", True, (255,255,255))
-    screen.blit(over_text, (200,500))
 
 # LEVEL 1
 def Mplay():
@@ -2415,10 +2421,17 @@ def Mplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
     textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -2488,6 +2501,8 @@ def Mplay():
     
         if umulit_mike.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 MMplaylevel2()
 
         if umuulit_mike.draw(screen):
@@ -2710,7 +2725,6 @@ def Mplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
@@ -2723,7 +2737,6 @@ def Mplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies7Y = random.randint(50,150)
             enemies7_X = random.randint(0,735)
 
@@ -2736,7 +2749,6 @@ def Mplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies8Y = random.randint(50,150)
             enemies8_X = random.randint(0,735)
         
@@ -2749,11 +2761,10 @@ def Mplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies9Y = random.randint(50,150)
             enemies9_X = random.randint(0,735)
 
-
+        show_score(textX, textY)
         Enemies(enemies9_X, enemies9Y)
         Enemies(enemies8_X, enemies8Y)   
         Enemies(enemies7_X, enemies7Y)
@@ -2818,10 +2829,17 @@ def MMplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
     textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -2885,6 +2903,8 @@ def MMplay():
     
         if umulit_mike.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 MMplaylevel3()
 
         if umuulit_mike.draw(screen):
@@ -3095,7 +3115,6 @@ def MMplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
@@ -3108,7 +3127,6 @@ def MMplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies7Y = random.randint(50,150)
             enemies7_X = random.randint(0,735)
 
@@ -3121,11 +3139,10 @@ def MMplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies8Y = random.randint(50,150)
             enemies8_X = random.randint(0,735)
 
-        
+        show_score(textX, textY)
         Enemieslevel(enemies8_X, enemies8Y)
         Enemieslevel(enemies7_X, enemies7Y)
         Enemieslevel(enemiesssss_X, enemiesssssY)
@@ -3188,10 +3205,17 @@ def MMMplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
     textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -3255,6 +3279,8 @@ def MMMplay():
     
         if umulit_mike.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 MMplaylevel4()
 
         if umuulit_mike.draw(screen):
@@ -3455,7 +3481,6 @@ def MMMplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
@@ -3468,13 +3493,12 @@ def MMMplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies7Y = random.randint(50,150)
             enemies7_X = random.randint(0,735)
 
 
         
-        
+        show_score(textX, textY)
         Enemieslevell(enemies7_X, enemies7Y)
         Enemieslevell(enemiesssss_X, enemiesssssY)
         Enemieslevel3(enemiessss_X, enemiessssY)
@@ -3535,10 +3559,17 @@ def MMMMplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
     textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -3590,7 +3621,9 @@ def MMMMplay():
     
         if umulit_mike.draw(screen):
             if click:
-                pass
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                congrats()
 
         if umuulit_mike.draw(screen):
             if click:
@@ -3780,13 +3813,12 @@ def MMMMplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
 
         
-        
+        show_score(textX, textY)
         Enemieslevelll4(enemiesssss_X, enemiesssssY)
         Enemieslevel4(enemiessss_X, enemiessssY)
         Enemieslevel4(enemiesss_X, enemiesssY)
@@ -3874,18 +3906,6 @@ def fire_Bulletsss(x, y):
     screen.blit(bullets_lucas, (x + 16,y + 10))
 
 
-# SCORE BOARD
-def show_score(x,y):
-    fonts = pygame.font.Font('freesansbold.ttf', 32)
-    score_value = 0
-    score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
-    screen.blit(score, (x,y))
-
-# GAME OVER
-def gameover():
-    over_text = font.render("GAME OVER", True, (255,255,255))
-    screen.blit(over_text, (200,500))
-
 # LEVEL 1
 def Lplay():
 
@@ -3901,10 +3921,17 @@ def Lplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
     textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -3974,6 +4001,8 @@ def Lplay():
     
         if umulit_lucas.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 LLplaylevel2() 
         
         if umuulit_lucas.draw(screen):
@@ -4196,7 +4225,6 @@ def Lplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
@@ -4209,7 +4237,6 @@ def Lplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies7Y = random.randint(50,150)
             enemies7_X = random.randint(0,735)
 
@@ -4222,7 +4249,6 @@ def Lplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies8Y = random.randint(50,150)
             enemies8_X = random.randint(0,735)
         
@@ -4239,7 +4265,7 @@ def Lplay():
             enemies9Y = random.randint(50,150)
             enemies9_X = random.randint(0,735)
 
-
+        show_score(textX, textY)
         Enemies(enemies9_X, enemies9Y)
         Enemies(enemies8_X, enemies8Y)   
         Enemies(enemies7_X, enemies7Y)
@@ -4304,10 +4330,17 @@ def LLplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
     textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -4371,6 +4404,8 @@ def LLplay():
     
         if umulit_lucas.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 LLplaylevel3()
 
         if umuulit_lucas.draw(screen):
@@ -4581,7 +4616,6 @@ def LLplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
@@ -4594,7 +4628,6 @@ def LLplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies7Y = random.randint(50,150)
             enemies7_X = random.randint(0,735)
 
@@ -4607,11 +4640,10 @@ def LLplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies8Y = random.randint(50,150)
             enemies8_X = random.randint(0,735)
 
-        
+        show_score(textX, textY)
         Enemieslevel(enemies8_X, enemies8Y)
         Enemieslevel(enemies7_X, enemies7Y)
         Enemieslevel(enemiesssss_X, enemiesssssY)
@@ -4674,11 +4706,18 @@ def LLLplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
-    textY = 10
+    # SCORE 
     
+    score_value = 0
+    textX = 600
+    textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
+
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
@@ -4741,6 +4780,8 @@ def LLLplay():
     
         if umulit_lucas.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 LLplaylevel4()
 
         if umuulit_lucas.draw(screen):
@@ -4941,7 +4982,6 @@ def LLLplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
@@ -4954,13 +4994,12 @@ def LLLplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies7Y = random.randint(50,150)
             enemies7_X = random.randint(0,735)
 
 
         
-        
+        show_score(textX, textY)
         Enemieslevell(enemies7_X, enemies7Y)
         Enemieslevell(enemiesssss_X, enemiesssssY)
         Enemieslevel3(enemiessss_X, enemiessssY)
@@ -5022,10 +5061,17 @@ def LLLLplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
     textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -5077,7 +5123,9 @@ def LLLLplay():
     
         if umulit_lucas.draw(screen):
             if click:
-                pass
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                congrats()
         
         if umuulit_lucas.draw(screen):
             if click:
@@ -5267,13 +5315,12 @@ def LLLLplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
 
         
-        
+        show_score(textX, textY)
         Enemieslevelll4(enemiesssss_X, enemiesssssY)
         Enemieslevel4(enemiessss_X, enemiessssY)
         Enemieslevel4(enemiesss_X, enemiesssY)
@@ -5371,18 +5418,6 @@ def fire_Bulletssss(x, y):
     screen.blit(bullets_dustin, (x + 16,y + 10))
 
 
-# SCORE BOARD
-def show_score(x,y):
-    fonts = pygame.font.Font('freesansbold.ttf', 32)
-    score_value = 0
-    score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
-    screen.blit(score, (x,y))
-
-# GAME OVER
-def gameover():
-    over_text = font.render("GAME OVER", True, (255,255,255))
-    screen.blit(over_text, (200,500))
-
 # LEVEL 1
 def Dplay():
 
@@ -5398,10 +5433,17 @@ def Dplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
     textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -5471,11 +5513,15 @@ def Dplay():
     
         if umulit_dustin.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 DDplaylevel2() 
 
 
         if umuulit_dustin.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 Dplacereview()
 
         #GAME LOOP   
@@ -5692,7 +5738,6 @@ def Dplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
@@ -5705,7 +5750,6 @@ def Dplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies7Y = random.randint(50,150)
             enemies7_X = random.randint(0,735)
 
@@ -5718,7 +5762,6 @@ def Dplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies8Y = random.randint(50,150)
             enemies8_X = random.randint(0,735)
         
@@ -5731,11 +5774,10 @@ def Dplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies9Y = random.randint(50,150)
             enemies9_X = random.randint(0,735)
 
-
+        show_score(textX, textY)
         Enemies(enemies9_X, enemies9Y)
         Enemies(enemies8_X, enemies8Y)   
         Enemies(enemies7_X, enemies7Y)
@@ -5800,10 +5842,17 @@ def DDplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
     textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -5867,7 +5916,10 @@ def DDplay():
     
         if umulit_dustin.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 DDplaylevel3() 
+                
         
         if umuulit_dustin.draw(screen):
             if click:
@@ -6077,7 +6129,6 @@ def DDplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
@@ -6090,7 +6141,6 @@ def DDplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies7Y = random.randint(50,150)
             enemies7_X = random.randint(0,735)
 
@@ -6103,11 +6153,10 @@ def DDplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies8Y = random.randint(50,150)
             enemies8_X = random.randint(0,735)
 
-        
+        show_score(textX, textY)
         Enemieslevel(enemies8_X, enemies8Y)
         Enemieslevel(enemies7_X, enemies7Y)
         Enemieslevel(enemiesssss_X, enemiesssssY)
@@ -6171,10 +6220,17 @@ def DDDplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
     textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -6238,6 +6294,8 @@ def DDDplay():
     
         if umulit_dustin.draw(screen):
             if click:
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
                 DDplaylevel4()
         
         if umuulit_dustin.draw(screen):
@@ -6438,7 +6496,6 @@ def DDDplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
@@ -6451,13 +6508,12 @@ def DDDplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemies7Y = random.randint(50,150)
             enemies7_X = random.randint(0,735)
 
 
         
-        
+        show_score(textX, textY)
         Enemieslevell(enemies7_X, enemies7Y)
         Enemieslevell(enemiesssss_X, enemiesssssY)
         Enemieslevel3(enemiessss_X, enemiessssY)
@@ -6519,10 +6575,17 @@ def DDDDplay():
     bulletY_changed = 20
     bullets_state = "fire"
     
-    # SCORE
-    score_value = 0 
-    textX = 10
+    # SCORE 
+    
+    score_value = 0
+    textX = 600
     textY = 10
+    fonts = pygame.font.Font('freesansbold.ttf', 32)
+
+    def show_score(x,y):
+        
+        score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
+        screen.blit(score, (x,y))
     
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
@@ -6574,7 +6637,9 @@ def DDDDplay():
     
         if umulit_dustin.draw(screen):
             if click:
-                pass 
+                partone_sound = mixer.Sound('sound/buttoneffect.wav')
+                partone_sound.play()
+                congrats() 
         
         if umuulit_dustin.draw(screen):
             if click:
@@ -6764,13 +6829,12 @@ def DDDDplay():
             bulletY = 480
             bullets_state = "fire"
             score_value += 1
-            print(score_value)
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
 
         
-        
+        show_score(textX, textY)
         Enemieslevelll4(enemiesssss_X, enemiesssssY)
         Enemieslevel4(enemiessss_X, enemiessssY)
         Enemieslevel4(enemiesss_X, enemiesssY)
@@ -6781,5 +6845,28 @@ def DDDDplay():
         pygame.display.update()
         mainClock.tick(60)
 
+#CONGRATULATIONS IMAGE
+congratulations = pygame.image.load('assets/congrats.png')
+
+#CONGRATULATIONS WINDOWS
+
+def congrats():
+    running = True
+    while running:
+        #SCREEN
+        screen.blit(bg_background, (0,0))
+        screen.blit(congratulations, (0,150))
+        draw_text("CONGRATULATIONS", font, (255, 255, 255), screen, 20, 20)
+
+
+        #GAME LOOP
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                pygame.quit()
+                sys.exit()
+            
+
+        pygame.display.update()
+        mainClock.tick(60)
 
 game_menu()
