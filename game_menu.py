@@ -920,7 +920,7 @@ def Eplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreElevel1(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -939,26 +939,26 @@ def Eplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 40
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 40
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 40
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 40
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -987,8 +987,8 @@ def Eplay():
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 40
+    enemyX_changed = 20
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -1050,10 +1050,10 @@ def Eplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 10
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -10
             enemyY += enemyY_changed
         
         
@@ -1064,10 +1064,10 @@ def Eplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 10
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -10
             enemiesY += enemiesY_changed
 
 
@@ -1077,10 +1077,10 @@ def Eplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 10
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -10
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -1088,10 +1088,10 @@ def Eplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 10
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -10
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -1099,10 +1099,10 @@ def Eplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 10
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -10
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -1110,10 +1110,10 @@ def Eplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 20
+            enemiesssssX_changed = 25
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -20
+            enemiesssssX_changed = -25
             enemiesssssY += enemiesssssY_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -1121,10 +1121,10 @@ def Eplay():
         enemies7_X += enemies7X_changed
 
         if enemies7_X <= 1:
-            enemies7X_changed = 20
+            enemies7X_changed = 25
             enemies7Y += enemies7Y_changed
         elif enemies7_X >= 736:
-            enemies7X_changed = -20
+            enemies7X_changed = -25
             enemies7Y += enemies7Y_changed
         
         # EIGHT ENEMIES MOVEMENT
@@ -1132,10 +1132,10 @@ def Eplay():
         enemies8_X += enemies8X_changed
 
         if enemies8_X <= 1:
-            enemies8X_changed = 20
+            enemies8X_changed = 25
             enemies8Y += enemies8Y_changed
         elif enemies8_X >= 736:
-            enemies8X_changed = -20
+            enemies8X_changed = -25
             enemies8Y += enemies8Y_changed
         
         # EIGHT ENEMIES MOVEMENT
@@ -1143,10 +1143,10 @@ def Eplay():
         enemies9_X += enemies9X_changed
 
         if enemies9_X <= 1:
-            enemies9X_changed = 20
+            enemies9X_changed = 25
             enemies9Y += enemies9Y_changed
         elif enemies9_X >= 736:
-            enemies9X_changed = -20
+            enemies9X_changed = -25
             enemies9Y += enemies9Y_changed
         
 
@@ -1267,7 +1267,7 @@ def Eplay():
             enemies9Y = random.randint(50,150)
             enemies9_X = random.randint(0,735)
 
-        show_score(textX, textY)
+        show_scoreElevel1(textX, textY)
         Enemies(enemies9_X, enemies9Y)
         Enemies(enemies8_X, enemies8Y)   
         Enemies(enemies7_X, enemies7Y)
@@ -1339,7 +1339,7 @@ def EEplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreElevel2(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -1347,26 +1347,26 @@ def EEplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 10
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 10
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 10
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 10
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -1389,8 +1389,8 @@ def EEplay():
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 10
+    enemyX_changed = 20
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -1452,10 +1452,10 @@ def EEplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 10
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -10
             enemyY += enemyY_changed
         
         
@@ -1466,10 +1466,10 @@ def EEplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 10
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -10
             enemiesY += enemiesY_changed
 
 
@@ -1479,10 +1479,10 @@ def EEplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 10
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -10
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -1490,10 +1490,10 @@ def EEplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 10
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -10
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -1501,10 +1501,10 @@ def EEplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 10
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -10
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -1512,10 +1512,10 @@ def EEplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 25
+            enemiesssssX_changed = 30
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -25
+            enemiesssssX_changed = -30
             enemiesssssY += enemiesssssY_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -1523,10 +1523,10 @@ def EEplay():
         enemies7_X += enemies7X_changed
 
         if enemies7_X <= 1:
-            enemies7X_changed = 25
+            enemies7X_changed = 30
             enemies7Y += enemies7Y_changed
         elif enemies7_X >= 736:
-            enemies7X_changed = -25
+            enemies7X_changed = -30
             enemies7Y += enemies7Y_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -1534,10 +1534,10 @@ def EEplay():
         enemies8_X += enemies8X_changed
 
         if enemies8_X <= 1:
-            enemies8X_changed = 25
+            enemies8X_changed = 30
             enemies8Y += enemies8Y_changed
         elif enemies8_X >= 736:
-            enemies8X_changed = -25
+            enemies8X_changed = -30
             enemies8Y += enemies8Y_changed
 
         # BULLET MOVEMENT
@@ -1646,7 +1646,7 @@ def EEplay():
             enemies8_X = random.randint(0,735)
 
         
-        show_score(textX, textY)
+        show_scoreElevel2(textX, textY)
         Enemieslevel(enemies8_X, enemies8Y)
         Enemieslevel(enemies7_X, enemies7Y)
         Enemieslevel(enemiesssss_X, enemiesssssY)
@@ -1716,7 +1716,7 @@ def EEEplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreElevel3(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -1724,26 +1724,26 @@ def EEEplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 10
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 10
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 10
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 10
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -1766,8 +1766,8 @@ def EEEplay():
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 10
+    enemyX_changed = 20
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -1829,10 +1829,10 @@ def EEEplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 10
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -10
             enemyY += enemyY_changed
         
         
@@ -1843,10 +1843,10 @@ def EEEplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 10
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -10
             enemiesY += enemiesY_changed
 
 
@@ -1856,10 +1856,10 @@ def EEEplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 10
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -10
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -1867,10 +1867,10 @@ def EEEplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 10
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -10
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -1878,10 +1878,10 @@ def EEEplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 10
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -10
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -1889,10 +1889,10 @@ def EEEplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 30
+            enemiesssssX_changed = 35
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -30
+            enemiesssssX_changed = -35
             enemiesssssY += enemiesssssY_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -1900,10 +1900,10 @@ def EEEplay():
         enemies7_X += enemies7X_changed
 
         if enemies7_X <= 1:
-            enemies7X_changed = 30
+            enemies7X_changed = 35
             enemies7Y += enemies7Y_changed
         elif enemies7_X >= 736:
-            enemies7X_changed = -30
+            enemies7X_changed = -35
             enemies7Y += enemies7Y_changed
         
 
@@ -2002,7 +2002,7 @@ def EEEplay():
 
 
         
-        show_score(textX, textY)
+        show_scoreElevel3(textX, textY)
         Enemieslevell(enemies7_X, enemies7Y)
         Enemieslevell(enemiesssss_X, enemiesssssY)
         Enemieslevel3(enemiessss_X, enemiessssY)
@@ -2071,7 +2071,7 @@ def EEEEplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreElevel4(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -2079,26 +2079,26 @@ def EEEEplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 10
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 10
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 10
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 10
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -2106,11 +2106,23 @@ def EEEEplay():
     enemiesssssX_changed = 20
     enemiesssssY_changed = 0
 
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # SIX ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 10
+    enemyX_changed = 20
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -2172,10 +2184,10 @@ def EEEEplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 20
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -20
             enemyY += enemyY_changed
         
         
@@ -2186,10 +2198,10 @@ def EEEEplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 20
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -20
             enemiesY += enemiesY_changed
 
 
@@ -2199,10 +2211,10 @@ def EEEEplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 20
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -20
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -2210,10 +2222,10 @@ def EEEEplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 20
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -20
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -2221,10 +2233,10 @@ def EEEEplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 20
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -20
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -2232,13 +2244,33 @@ def EEEEplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 40
+            enemiesssssX_changed = 50
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -40
+            enemiesssssX_changed = -50
             enemiesssssY += enemiesssssY_changed
         
+        # SEVEN ENEMIES MOVEMENT
         
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 2:
+            enemies7X_changed = 20
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -20
+            enemies7Y += enemies7X_changed
+
+        # EIGHT ENEMIES MOVEMENT
+        
+        enemies8_X += enemies8X_changed
+
+        if enemies8_X <= 2:
+            enemies8X_changed = 20
+            enemies8Y += enemies8Y_changed
+        elif enemies8_X >= 736:
+            enemies8X_changed = -20
+            enemies8Y += enemies8Y_changed
 
         # BULLET MOVEMENT
         if bulletY <= 0:
@@ -2321,10 +2353,36 @@ def EEEEplay():
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
+        
+        # SIX ENEMIES
+        fivecollision = fourCollision(enemies8_X,enemies8Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies8_X,enemies8Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            enemies8Y = random.randint(50,150)
+            enemies8_X = random.randint(0,735)
+        
 
         
-        show_score(textX, textY)
+        show_scoreElevel4(textX, textY)
         Enemieslevelll4(enemiesssss_X, enemiesssssY)
+        Enemieslevel4(enemies8_X, enemies8Y)
+        Enemieslevel4(enemies7_X, enemies7Y)
         Enemieslevel4(enemiessss_X, enemiessssY)
         Enemieslevel4(enemiesss_X, enemiesssY)
         Enemieslevel4(enemiess_X, enemiessY)
@@ -2428,7 +2486,7 @@ def Mplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreMlevel1(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -2436,26 +2494,26 @@ def Mplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 40
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 40
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 40
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 40
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -2484,8 +2542,8 @@ def Mplay():
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 40
+    enemyX_changed = 20
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -2547,10 +2605,10 @@ def Mplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 10
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -10
             enemyY += enemyY_changed
         
         
@@ -2561,10 +2619,10 @@ def Mplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 10
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -10
             enemiesY += enemiesY_changed
 
 
@@ -2574,10 +2632,10 @@ def Mplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 10
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -10
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -2585,10 +2643,10 @@ def Mplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 10
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -10
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -2596,10 +2654,10 @@ def Mplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 10
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -10
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -2607,10 +2665,10 @@ def Mplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 20
+            enemiesssssX_changed = 25
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -20
+            enemiesssssX_changed = -25
             enemiesssssY += enemiesssssY_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -2618,10 +2676,10 @@ def Mplay():
         enemies7_X += enemies7X_changed
 
         if enemies7_X <= 1:
-            enemies7X_changed = 20
+            enemies7X_changed = 25
             enemies7Y += enemies7Y_changed
         elif enemies7_X >= 736:
-            enemies7X_changed = -20
+            enemies7X_changed = -25
             enemies7Y += enemies7Y_changed
         
         # EIGHT ENEMIES MOVEMENT
@@ -2629,10 +2687,10 @@ def Mplay():
         enemies8_X += enemies8X_changed
 
         if enemies8_X <= 1:
-            enemies8X_changed = 20
+            enemies8X_changed = 25
             enemies8Y += enemies8Y_changed
         elif enemies8_X >= 736:
-            enemies8X_changed = -20
+            enemies8X_changed = -25
             enemies8Y += enemies8Y_changed
         
         # EIGHT ENEMIES MOVEMENT
@@ -2640,10 +2698,10 @@ def Mplay():
         enemies9_X += enemies9X_changed
 
         if enemies9_X <= 1:
-            enemies9X_changed = 20
+            enemies9X_changed = 25
             enemies9Y += enemies9Y_changed
         elif enemies9_X >= 736:
-            enemies9X_changed = -20
+            enemies9X_changed = -25
             enemies9Y += enemies9Y_changed
         
 
@@ -2764,7 +2822,7 @@ def Mplay():
             enemies9Y = random.randint(50,150)
             enemies9_X = random.randint(0,735)
 
-        show_score(textX, textY)
+        show_scoreMlevel1(textX, textY)
         Enemies(enemies9_X, enemies9Y)
         Enemies(enemies8_X, enemies8Y)   
         Enemies(enemies7_X, enemies7Y)
@@ -2836,7 +2894,7 @@ def MMplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreMlevel2(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -2844,26 +2902,26 @@ def MMplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 10
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 10
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 10
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 10
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -2886,8 +2944,8 @@ def MMplay():
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 10
+    enemyX_changed = 20
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -2949,10 +3007,10 @@ def MMplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 10
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -10
             enemyY += enemyY_changed
         
         
@@ -2963,10 +3021,10 @@ def MMplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 10
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -10
             enemiesY += enemiesY_changed
 
 
@@ -2976,10 +3034,10 @@ def MMplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 10
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -10
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -2987,10 +3045,10 @@ def MMplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 10
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -10
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -2998,10 +3056,10 @@ def MMplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 10
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -10
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -3009,10 +3067,10 @@ def MMplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 25
+            enemiesssssX_changed = 30
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -25
+            enemiesssssX_changed = -30
             enemiesssssY += enemiesssssY_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -3020,10 +3078,10 @@ def MMplay():
         enemies7_X += enemies7X_changed
 
         if enemies7_X <= 1:
-            enemies7X_changed = 25
+            enemies7X_changed = 30
             enemies7Y += enemies7Y_changed
         elif enemies7_X >= 736:
-            enemies7X_changed = -25
+            enemies7X_changed = -30
             enemies7Y += enemies7Y_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -3031,10 +3089,10 @@ def MMplay():
         enemies8_X += enemies8X_changed
 
         if enemies8_X <= 1:
-            enemies8X_changed = 25
+            enemies8X_changed = 30
             enemies8Y += enemies8Y_changed
         elif enemies8_X >= 736:
-            enemies8X_changed = -25
+            enemies8X_changed = -30
             enemies8Y += enemies8Y_changed
 
         # BULLET MOVEMENT
@@ -3142,7 +3200,7 @@ def MMplay():
             enemies8Y = random.randint(50,150)
             enemies8_X = random.randint(0,735)
 
-        show_score(textX, textY)
+        show_scoreMlevel2(textX, textY)
         Enemieslevel(enemies8_X, enemies8Y)
         Enemieslevel(enemies7_X, enemies7Y)
         Enemieslevel(enemiesssss_X, enemiesssssY)
@@ -3193,7 +3251,7 @@ def MMplaylevel3():
         pygame.display.update()
         mainClock.tick(60)
 
-def MMMplay():
+def MMMplay(): 
      # EXPLOSION EFFECT
     explosive  = pygame.image.load('assets/explode.png')
 
@@ -3212,7 +3270,7 @@ def MMMplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreMlevel3(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -3220,26 +3278,26 @@ def MMMplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 10
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 10
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 10
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 10
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -3325,10 +3383,10 @@ def MMMplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 10
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -10
             enemyY += enemyY_changed
         
         
@@ -3339,10 +3397,10 @@ def MMMplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 10
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -10
             enemiesY += enemiesY_changed
 
 
@@ -3352,10 +3410,10 @@ def MMMplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 10
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -10
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -3363,10 +3421,10 @@ def MMMplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 10
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -10
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -3374,10 +3432,10 @@ def MMMplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 10
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -10
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -3385,10 +3443,10 @@ def MMMplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 30
+            enemiesssssX_changed = 35
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -30
+            enemiesssssX_changed = -35
             enemiesssssY += enemiesssssY_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -3396,10 +3454,10 @@ def MMMplay():
         enemies7_X += enemies7X_changed
 
         if enemies7_X <= 1:
-            enemies7X_changed = 30
+            enemies7X_changed = 35
             enemies7Y += enemies7Y_changed
         elif enemies7_X >= 736:
-            enemies7X_changed = -30
+            enemies7X_changed = -35
             enemies7Y += enemies7Y_changed
         
 
@@ -3498,7 +3556,7 @@ def MMMplay():
 
 
         
-        show_score(textX, textY)
+        show_scoreMlevel3(textX, textY)
         Enemieslevell(enemies7_X, enemies7Y)
         Enemieslevell(enemiesssss_X, enemiesssssY)
         Enemieslevel3(enemiessss_X, enemiessssY)
@@ -3566,7 +3624,7 @@ def MMMMplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreMlevel4(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -3574,26 +3632,26 @@ def MMMMplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 10
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 10
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 10
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 10
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -3601,11 +3659,23 @@ def MMMMplay():
     enemiesssssX_changed = 20
     enemiesssssY_changed = 0
 
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # EIGHT ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 10
+    enemyX_changed = 20
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -3667,10 +3737,10 @@ def MMMMplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 20
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -20
             enemyY += enemyY_changed
         
         
@@ -3681,10 +3751,10 @@ def MMMMplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 20
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -20
             enemiesY += enemiesY_changed
 
 
@@ -3694,10 +3764,10 @@ def MMMMplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 20
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -20
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -3705,10 +3775,10 @@ def MMMMplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 20
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -20
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -3716,10 +3786,10 @@ def MMMMplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 20
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -20
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -3727,11 +3797,33 @@ def MMMMplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 40
+            enemiesssssX_changed = 50
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -40
+            enemiesssssX_changed = -50
             enemiesssssY += enemiesssssY_changed
+
+        # SEVEN ENEMIES MOVEMENT
+        
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 1:
+            enemies7X_changed = 20
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -20
+            enemies7Y += enemies7Y_changed
+
+        # EIGHT ENEMIES MOVEMENT
+        
+        enemies8_X += enemies8X_changed
+
+        if enemies8_X <= 1:
+            enemies8X_changed = 20
+            enemies8Y += enemies8Y_changed
+        elif enemies8_X >= 736:
+            enemies8X_changed = -20
+            enemies8Y += enemies8Y_changed    
         
         
 
@@ -3816,10 +3908,36 @@ def MMMMplay():
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
+
+        # EIGHT ENEMIES
+        fivecollision = fourCollision(enemies8_X,enemies8Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies8_X,enemies8Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            enemies8Y = random.randint(50,150)
+            enemies8_X = random.randint(0,735)
+        
 
         
-        show_score(textX, textY)
+        show_scoreMlevel4(textX, textY)
         Enemieslevelll4(enemiesssss_X, enemiesssssY)
+        Enemieslevel4(enemies8_X, enemies8Y)
+        Enemieslevel4(enemies7_X, enemies7Y)
         Enemieslevel4(enemiessss_X, enemiessssY)
         Enemieslevel4(enemiesss_X, enemiesssY)
         Enemieslevel4(enemiess_X, enemiessY)
@@ -3928,7 +4046,7 @@ def Lplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreLlevel1(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -3936,26 +4054,26 @@ def Lplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 40
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 40
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 40
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 40
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -3984,8 +4102,8 @@ def Lplay():
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 40
+    enemyX_changed = 20
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -4047,10 +4165,10 @@ def Lplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 10
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -10
             enemyY += enemyY_changed
         
         
@@ -4061,10 +4179,10 @@ def Lplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 10
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -10
             enemiesY += enemiesY_changed
 
 
@@ -4074,10 +4192,10 @@ def Lplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 10
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -10
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -4085,10 +4203,10 @@ def Lplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 10
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -10
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -4096,10 +4214,10 @@ def Lplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 10
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -10
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -4107,10 +4225,10 @@ def Lplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 20
+            enemiesssssX_changed = 25
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -20
+            enemiesssssX_changed = -25
             enemiesssssY += enemiesssssY_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -4118,10 +4236,10 @@ def Lplay():
         enemies7_X += enemies7X_changed
 
         if enemies7_X <= 1:
-            enemies7X_changed = 20
+            enemies7X_changed = 25
             enemies7Y += enemies7Y_changed
         elif enemies7_X >= 736:
-            enemies7X_changed = -20
+            enemies7X_changed = -25
             enemies7Y += enemies7Y_changed
         
         # EIGHT ENEMIES MOVEMENT
@@ -4129,10 +4247,10 @@ def Lplay():
         enemies8_X += enemies8X_changed
 
         if enemies8_X <= 1:
-            enemies8X_changed = 20
+            enemies8X_changed = 25
             enemies8Y += enemies8Y_changed
         elif enemies8_X >= 736:
-            enemies8X_changed = -20
+            enemies8X_changed = -25
             enemies8Y += enemies8Y_changed
         
         # EIGHT ENEMIES MOVEMENT
@@ -4140,10 +4258,10 @@ def Lplay():
         enemies9_X += enemies9X_changed
 
         if enemies9_X <= 1:
-            enemies9X_changed = 20
+            enemies9X_changed = 25
             enemies9Y += enemies9Y_changed
         elif enemies9_X >= 736:
-            enemies9X_changed = -20
+            enemies9X_changed = -25
             enemies9Y += enemies9Y_changed
         
 
@@ -4265,7 +4383,7 @@ def Lplay():
             enemies9Y = random.randint(50,150)
             enemies9_X = random.randint(0,735)
 
-        show_score(textX, textY)
+        show_scoreLlevel1(textX, textY)
         Enemies(enemies9_X, enemies9Y)
         Enemies(enemies8_X, enemies8Y)   
         Enemies(enemies7_X, enemies7Y)
@@ -4337,7 +4455,7 @@ def LLplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreLlevel2(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -4345,26 +4463,26 @@ def LLplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 10
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 10
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 10
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 10
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -4387,8 +4505,8 @@ def LLplay():
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 10
+    enemyX_changed = 20
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -4450,10 +4568,10 @@ def LLplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 10
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -10
             enemyY += enemyY_changed
         
         
@@ -4464,10 +4582,10 @@ def LLplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 10
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -10
             enemiesY += enemiesY_changed
 
 
@@ -4477,10 +4595,10 @@ def LLplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 10
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -10
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -4488,10 +4606,10 @@ def LLplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 10
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -10
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -4499,10 +4617,10 @@ def LLplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 10
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -10
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -4510,10 +4628,10 @@ def LLplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 25
+            enemiesssssX_changed = 30
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -25
+            enemiesssssX_changed = -30
             enemiesssssY += enemiesssssY_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -4521,10 +4639,10 @@ def LLplay():
         enemies7_X += enemies7X_changed
 
         if enemies7_X <= 1:
-            enemies7X_changed = 25
+            enemies7X_changed = 30
             enemies7Y += enemies7Y_changed
         elif enemies7_X >= 736:
-            enemies7X_changed = -25
+            enemies7X_changed = -30
             enemies7Y += enemies7Y_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -4532,10 +4650,10 @@ def LLplay():
         enemies8_X += enemies8X_changed
 
         if enemies8_X <= 1:
-            enemies8X_changed = 25
+            enemies8X_changed = 30
             enemies8Y += enemies8Y_changed
         elif enemies8_X >= 736:
-            enemies8X_changed = -25
+            enemies8X_changed = -30
             enemies8Y += enemies8Y_changed
 
         # BULLET MOVEMENT
@@ -4643,7 +4761,7 @@ def LLplay():
             enemies8Y = random.randint(50,150)
             enemies8_X = random.randint(0,735)
 
-        show_score(textX, textY)
+        show_scoreLlevel2(textX, textY)
         Enemieslevel(enemies8_X, enemies8Y)
         Enemieslevel(enemies7_X, enemies7Y)
         Enemieslevel(enemiesssss_X, enemiesssssY)
@@ -4713,7 +4831,7 @@ def LLLplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreLlevel3(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -4721,26 +4839,26 @@ def LLLplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 10
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 10
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 10
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 10
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -4763,8 +4881,8 @@ def LLLplay():
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 10
+    enemyX_changed = 20
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -4826,10 +4944,10 @@ def LLLplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 10
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -10
             enemyY += enemyY_changed
         
         
@@ -4840,10 +4958,10 @@ def LLLplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 10
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -10
             enemiesY += enemiesY_changed
 
 
@@ -4853,10 +4971,10 @@ def LLLplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 10
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -10
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -4864,10 +4982,10 @@ def LLLplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 10
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -10
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -4875,10 +4993,10 @@ def LLLplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 10
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -10
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -4886,10 +5004,10 @@ def LLLplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 30
+            enemiesssssX_changed = 35
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -30
+            enemiesssssX_changed = -35
             enemiesssssY += enemiesssssY_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -4897,10 +5015,10 @@ def LLLplay():
         enemies7_X += enemies7X_changed
 
         if enemies7_X <= 1:
-            enemies7X_changed = 30
+            enemies7X_changed = 35
             enemies7Y += enemies7Y_changed
         elif enemies7_X >= 736:
-            enemies7X_changed = -30
+            enemies7X_changed = -35
             enemies7Y += enemies7Y_changed
         
 
@@ -4999,7 +5117,7 @@ def LLLplay():
 
 
         
-        show_score(textX, textY)
+        show_scoreLlevel3(textX, textY)
         Enemieslevell(enemies7_X, enemies7Y)
         Enemieslevell(enemiesssss_X, enemiesssssY)
         Enemieslevel3(enemiessss_X, enemiessssY)
@@ -5068,7 +5186,7 @@ def LLLLplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreLlevel4(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -5076,26 +5194,26 @@ def LLLLplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 10
+    enemiesX_changed = 10
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 10
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 10
+    enemiesssX_changed = 30
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 10
+    enemiessssX_changed = 40
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -5103,11 +5221,23 @@ def LLLLplay():
     enemiesssssX_changed = 20
     enemiesssssY_changed = 0
 
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # EIGHT ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 10
+    enemyX_changed = 15
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -5169,10 +5299,10 @@ def LLLLplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 10
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -10
             enemyY += enemyY_changed
         
         
@@ -5183,10 +5313,10 @@ def LLLLplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 10
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -10
             enemiesY += enemiesY_changed
 
 
@@ -5196,10 +5326,10 @@ def LLLLplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 10
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -10
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -5207,10 +5337,10 @@ def LLLLplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 10
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -10
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -5218,10 +5348,10 @@ def LLLLplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 20
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -20
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -5229,13 +5359,33 @@ def LLLLplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 40
+            enemiesssssX_changed = 50
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -40
+            enemiesssssX_changed = -50
             enemiesssssY += enemiesssssY_changed
         
+        # SEVEN ENEMIES MOVEMENT
         
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 2:
+            enemies7X_changed = 20
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -20
+            enemies7Y += enemies7Y_changed
+
+        # EIGHT ENEMIES MOVEMENT
+        
+        enemies8_X += enemies8X_changed
+
+        if enemies8_X <= 2:
+            enemies8X_changed = 20
+            enemies8Y += enemies8Y_changed
+        elif enemies8_X >= 736:
+            enemies8X_changed = -20
+            enemies8Y += enemies8Y_changed
 
         # BULLET MOVEMENT
         if bulletY <= 0:
@@ -5317,11 +5467,24 @@ def LLLLplay():
             score_value += 1
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
-        
+
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            enemies7Y = random.randint(50,150)
+            enemies7_X = random.randint(0,735)
 
         
-        show_score(textX, textY)
+        show_scoreLlevel4(textX, textY)
         Enemieslevelll4(enemiesssss_X, enemiesssssY)
+        Enemieslevel4(enemies8_X, enemies8Y)
+        Enemieslevel4(enemies7_X, enemies8Y)
         Enemieslevel4(enemiessss_X, enemiessssY)
         Enemieslevel4(enemiesss_X, enemiesssY)
         Enemieslevel4(enemiess_X, enemiessY)
@@ -5440,7 +5603,7 @@ def Dplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreDlevel1(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -5448,26 +5611,26 @@ def Dplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 40
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 40
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 40
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 40
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -5496,8 +5659,8 @@ def Dplay():
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 40
+    enemyX_changed = 20
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -5560,10 +5723,10 @@ def Dplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 10
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -10
             enemyY += enemyY_changed
         
         
@@ -5574,10 +5737,10 @@ def Dplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 10
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -10
             enemiesY += enemiesY_changed
 
 
@@ -5587,10 +5750,10 @@ def Dplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 10
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -10
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -5598,10 +5761,10 @@ def Dplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 10
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -10
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -5609,10 +5772,10 @@ def Dplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 10
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -10
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -5620,10 +5783,10 @@ def Dplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 20
+            enemiesssssX_changed = 25
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -20
+            enemiesssssX_changed = -25
             enemiesssssY += enemiesssssY_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -5631,10 +5794,10 @@ def Dplay():
         enemies7_X += enemies7X_changed
 
         if enemies7_X <= 1:
-            enemies7X_changed = 20
+            enemies7X_changed = 25
             enemies7Y += enemies7Y_changed
         elif enemies7_X >= 736:
-            enemies7X_changed = -20
+            enemies7X_changed = -25
             enemies7Y += enemies7Y_changed
         
         # EIGHT ENEMIES MOVEMENT
@@ -5642,10 +5805,10 @@ def Dplay():
         enemies8_X += enemies8X_changed
 
         if enemies8_X <= 1:
-            enemies8X_changed = 20
+            enemies8X_changed = 25
             enemies8Y += enemies8Y_changed
         elif enemies8_X >= 736:
-            enemies8X_changed = -20
+            enemies8X_changed = -25
             enemies8Y += enemies8Y_changed
         
         # EIGHT ENEMIES MOVEMENT
@@ -5653,10 +5816,10 @@ def Dplay():
         enemies9_X += enemies9X_changed
 
         if enemies9_X <= 1:
-            enemies9X_changed = 20
+            enemies9X_changed = 25
             enemies9Y += enemies9Y_changed
         elif enemies9_X >= 736:
-            enemies9X_changed = -20
+            enemies9X_changed = -25
             enemies9Y += enemies9Y_changed
         
 
@@ -5777,7 +5940,7 @@ def Dplay():
             enemies9Y = random.randint(50,150)
             enemies9_X = random.randint(0,735)
 
-        show_score(textX, textY)
+        show_scoreDlevel1(textX, textY)
         Enemies(enemies9_X, enemies9Y)
         Enemies(enemies8_X, enemies8Y)   
         Enemies(enemies7_X, enemies7Y)
@@ -5849,7 +6012,7 @@ def DDplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreDlevel2(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -5857,26 +6020,26 @@ def DDplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 10
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 10
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 10
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 10
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -5899,8 +6062,8 @@ def DDplay():
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 10
+    enemyX_changed = 20
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -5963,10 +6126,10 @@ def DDplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 10
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -10
             enemyY += enemyY_changed
         
         
@@ -5977,10 +6140,10 @@ def DDplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 10
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -10
             enemiesY += enemiesY_changed
 
 
@@ -5990,10 +6153,10 @@ def DDplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 10
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -10
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -6001,10 +6164,10 @@ def DDplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 10
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -10
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -6012,10 +6175,10 @@ def DDplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 10
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -10
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -6023,10 +6186,10 @@ def DDplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 25
+            enemiesssssX_changed = 30
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -25
+            enemiesssssX_changed = -30
             enemiesssssY += enemiesssssY_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -6034,10 +6197,10 @@ def DDplay():
         enemies7_X += enemies7X_changed
 
         if enemies7_X <= 1:
-            enemies7X_changed = 25
+            enemies7X_changed = 30
             enemies7Y += enemies7Y_changed
         elif enemies7_X >= 736:
-            enemies7X_changed = -25
+            enemies7X_changed = -30
             enemies7Y += enemies7Y_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -6045,10 +6208,10 @@ def DDplay():
         enemies8_X += enemies8X_changed
 
         if enemies8_X <= 1:
-            enemies8X_changed = 25
+            enemies8X_changed = 30
             enemies8Y += enemies8Y_changed
         elif enemies8_X >= 736:
-            enemies8X_changed = -25
+            enemies8X_changed = -30
             enemies8Y += enemies8Y_changed
 
         # BULLET MOVEMENT
@@ -6156,7 +6319,7 @@ def DDplay():
             enemies8Y = random.randint(50,150)
             enemies8_X = random.randint(0,735)
 
-        show_score(textX, textY)
+        show_scoreDlevel2(textX, textY)
         Enemieslevel(enemies8_X, enemies8Y)
         Enemieslevel(enemies7_X, enemies7Y)
         Enemieslevel(enemiesssss_X, enemiesssssY)
@@ -6227,7 +6390,7 @@ def DDDplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreDlevel3(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -6235,26 +6398,26 @@ def DDDplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 10
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 10
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 10
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 10
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
@@ -6277,8 +6440,8 @@ def DDDplay():
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 10
+    enemyX_changed = 20
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -6340,10 +6503,10 @@ def DDDplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 10
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -10
             enemyY += enemyY_changed
         
         
@@ -6354,10 +6517,10 @@ def DDDplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 10
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -10
             enemiesY += enemiesY_changed
 
 
@@ -6367,10 +6530,10 @@ def DDDplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 10
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -10
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -6378,10 +6541,10 @@ def DDDplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 10
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -10
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -6389,10 +6552,10 @@ def DDDplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 10
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -10
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -6400,10 +6563,10 @@ def DDDplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 30
+            enemiesssssX_changed = 35
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -30
+            enemiesssssX_changed = -35
             enemiesssssY += enemiesssssY_changed
         
         # SEVEN ENEMIES MOVEMENT
@@ -6411,10 +6574,10 @@ def DDDplay():
         enemies7_X += enemies7X_changed
 
         if enemies7_X <= 1:
-            enemies7X_changed = 30
+            enemies7X_changed = 35
             enemies7Y += enemies7Y_changed
         elif enemies7_X >= 736:
-            enemies7X_changed = -30
+            enemies7X_changed = -35
             enemies7Y += enemies7Y_changed
         
 
@@ -6513,7 +6676,7 @@ def DDDplay():
 
 
         
-        show_score(textX, textY)
+        show_scoreDlevel3(textX, textY)
         Enemieslevell(enemies7_X, enemies7Y)
         Enemieslevell(enemiesssss_X, enemiesssssY)
         Enemieslevel3(enemiessss_X, enemiessssY)
@@ -6582,7 +6745,7 @@ def DDDDplay():
     textY = 10
     fonts = pygame.font.Font('freesansbold.ttf', 32)
 
-    def show_score(x,y):
+    def show_scoreDlevel4(x,y):
         
         score = fonts.render("SCORE : " + str(score_value), True, (255,255,255))
         screen.blit(score, (x,y))
@@ -6590,38 +6753,50 @@ def DDDDplay():
     # SECOND ENEMIES
     enemiesY = random.randint(50,150)
     enemies_X = random.randint(0,736)
-    enemiesX_changed = 3
-    enemiesY_changed = 10
+    enemiesX_changed = 20
+    enemiesY_changed = 0
 
     # THIRD ENEMIES
     enemiessY = random.randint(50,150)
     enemiess_X = random.randint(0,736)
-    enemiessX_changed = 3
-    enemiessY_changed = 10
+    enemiessX_changed = 20
+    enemiessY_changed = 0
 
     # FOURT ENEMIES
     enemiesssY = random.randint(50,150)
     enemiesss_X = random.randint(0,736)
-    enemiesssX_changed = 3
-    enemiesssY_changed = 10
+    enemiesssX_changed = 20
+    enemiesssY_changed = 0
 
     # FIVE ENEMIES
     enemiessssY = random.randint(50,150)
     enemiessss_X = random.randint(0,736)
-    enemiessssX_changed = 3
-    enemiessssY_changed = 10
+    enemiessssX_changed = 20
+    enemiessssY_changed = 0
 
     # SIX ENEMIES
     enemiesssssY = random.randint(50,150)
     enemiesssss_X = random.randint(0,736)
-    enemiesssssX_changed = 20
+    enemiesssssX_changed = 60
     enemiesssssY_changed = 0
 
+    # SEVEN ENEMIES
+    enemies7Y = random.randint(50,150)
+    enemies7_X = random.randint(0,736)
+    enemies7X_changed = 20
+    enemies7Y_changed = 0
+
+    # EIGHT ENEMIES
+    enemies8Y = random.randint(50,150)
+    enemies8_X = random.randint(0,736)
+    enemies8X_changed = 20
+    enemies8Y_changed = 0
+    
     # ENEMY MOVEMENT
     enemyY = random.randint(50,150)
     enemy_X = random.randint(0,736)
-    enemyX_changed = 3
-    enemyY_changed = 10
+    enemyX_changed = 20
+    enemyY_changed = 0
 
     #PLAYER MOVEMENT
     playerY = 600
@@ -6683,10 +6858,10 @@ def DDDDplay():
         enemy_X += enemyX_changed
         
         if enemy_X <= 2:
-            enemyX_changed = 5
+            enemyX_changed = 20
             enemyY += enemyY_changed
         elif enemy_X >= 736:
-            enemyX_changed = -5
+            enemyX_changed = -20
             enemyY += enemyY_changed
         
         
@@ -6697,10 +6872,10 @@ def DDDDplay():
         enemies_X += enemiesX_changed
 
         if enemies_X <=  2:
-            enemiesX_changed = 5
+            enemiesX_changed = 20
             enemiesY += enemiesY_changed
         elif enemies_X >= 736:
-            enemiesX_changed = -5
+            enemiesX_changed = -20
             enemiesY += enemiesY_changed
 
 
@@ -6710,10 +6885,10 @@ def DDDDplay():
         enemiess_X += enemiessX_changed
 
         if enemiess_X <= 2:
-            enemiessX_changed = 5
+            enemiessX_changed = 20
             enemiessY += enemiessY_changed
         elif enemiess_X >= 736:
-            enemiessX_changed = -5
+            enemiessX_changed = -20
             enemiessY += enemiessY_changed
 
         # FOURT ENEMIES MOVEMENT
@@ -6721,10 +6896,10 @@ def DDDDplay():
         enemiesss_X += enemiesssX_changed
 
         if enemiesss_X <=  2:
-            enemiesssX_changed = 5
+            enemiesssX_changed = 20
             enemiesssY += enemiesssY_changed
         elif enemiesss_X >= 736:
-            enemiesssX_changed = -5
+            enemiesssX_changed = -20
             enemiessssY += enemiesssY_changed
 
         # FIVE ENEMIES MOVEMENT
@@ -6732,10 +6907,10 @@ def DDDDplay():
         enemiessss_X += enemiessssX_changed
 
         if enemiessss_X <= 2:
-            enemiessssX_changed = 5
+            enemiessssX_changed = 20
             enemiessssY += enemiessssY_changed
         elif enemiessss_X >= 736:
-            enemiessssX_changed = -5
+            enemiessssX_changed = -20
             enemiessssY += enemiessssY_changed
         
         # SIX ENEMIES MOVEMENT
@@ -6743,13 +6918,33 @@ def DDDDplay():
         enemiesssss_X += enemiesssssX_changed
 
         if enemiesssss_X <= 1:
-            enemiesssssX_changed = 40
+            enemiesssssX_changed = 50
             enemiesssssY += enemiesssssY_changed
         elif enemiesssss_X >= 736:
-            enemiesssssX_changed = -40
+            enemiesssssX_changed = -50
             enemiesssssY += enemiesssssY_changed
         
+        # SEVEN ENEMIES MOVEMENT
         
+        enemies7_X += enemies7X_changed
+
+        if enemies7_X <= 1:
+            enemies7X_changed = 20
+            enemies7Y += enemies7Y_changed
+        elif enemies7_X >= 736:
+            enemies7X_changed = -20
+            enemies7Y += enemies7Y_changed
+
+        # EIGHT ENEMIES MOVEMENT
+        
+        enemies8_X += enemies8X_changed
+
+        if enemies8_X <= 1:
+            enemies8X_changed = 20
+            enemies8Y += enemies8Y_changed
+        elif enemies8_X >= 736:
+            enemies8X_changed = -20
+            enemies8Y += enemies8Y_changed
 
         # BULLET MOVEMENT
         if bulletY <= 0:
@@ -6832,10 +7027,36 @@ def DDDDplay():
             enemiesssssY = random.randint(50,150)
             enemiesssss_X = random.randint(0,735)
         
+        # SEVEN ENEMIES
+        fivecollision = fourCollision(enemies7_X,enemies7Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            enemies7Y = random.randint(50,150)
+            enemiess7_X = random.randint(0,735)
+        
+        # EIGHT ENEMIES
+        fivecollision = fourCollision(enemies8_X,enemies8Y,bullet_X,bulletY)
+        if fivecollision:
+            bullet_sound = mixer.Sound('sound/explosion.wav')
+            bullet_sound.play()
+            screen.blit(explosive, (enemies7_X,enemies7Y))
+            bulletY = 480
+            bullets_state = "fire"
+            score_value += 1
+            enemies8Y = random.randint(50,150)
+            enemies8_X = random.randint(0,735)
+        
 
         
-        show_score(textX, textY)
+        show_scoreDlevel4(textX, textY)
         Enemieslevelll4(enemiesssss_X, enemiesssssY)
+        Enemieslevel4(enemies8_X, enemies8Y)
+        Enemieslevel4(enemies7_X, enemies7Y)
         Enemieslevel4(enemiessss_X, enemiessssY)
         Enemieslevel4(enemiesss_X, enemiesssY)
         Enemieslevel4(enemiess_X, enemiessY)
@@ -6846,11 +7067,14 @@ def DDDDplay():
         mainClock.tick(60)
 
 #CONGRATULATIONS IMAGE
+
 congratulations = pygame.image.load('assets/congrats.png')
 
 #CONGRATULATIONS WINDOWS
 
 def congrats():
+
+    
     running = True
     while running:
         #SCREEN
@@ -6868,5 +7092,7 @@ def congrats():
 
         pygame.display.update()
         mainClock.tick(60)
+
+
 
 game_menu()
